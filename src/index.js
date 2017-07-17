@@ -10,6 +10,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';//
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import LoginPage from './pages/LoginPage';
+import UserPage from './pages/UserPage';
 
 // const store = createstore(reducer, applyMiddleware(thunk,logger));
 
@@ -19,7 +20,8 @@ ReactDOM.render(// <Provider store={store}>
                    <Router history={history}>
             
                             <Switch>
-                                <Route path='/' component={LoginPage} />
+                                <Route exact path='/' component={LoginPage} />
+                                <Route path='/:username' component={UserPage}/>
                             </Switch>
                     
                     </Router>

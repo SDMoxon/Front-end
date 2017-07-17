@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './page_styles/LoginPage.css'
+import './page_styles/LoginPage.css';
 
 class LoginPage extends React.Component {
     render () {
