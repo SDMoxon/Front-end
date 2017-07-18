@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom';
 // import {provider} from 'react-redux';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';// 
 import createBrowserHistory from 'history/createBrowserHistory';
+import './css/bulma.css';
 
 import LoginPage from './pages/LoginPage';
 import UserPage from './pages/UserPage';

@@ -6,18 +6,17 @@ class ProfileCard extends React.Component {
     render () {
         return (
             <div className="component-ProfileCard">
-                <div className="profile-photo-container">
-                <img id='profile-photo' src="http://www.dottorelondon.com/wp-content/themes/dottorelondon/img/doctor1.png" alt="profile photo"/>
-                </div>
-                <div className="users-details">
-                <h2>Users Name</h2>
-                <h4>Position: Doctor</h4>
-                <h4>Registered At: St Marys Hospital</h4>
-                </div>
-            </div>
+ 
+  <article className="tile is-child notification is-primary">
+             <img id='profile-photo'src="https://drparivar.com/images/doctor-profile-pic.png"/>
+            <p className="title">John Smith</p>
+            <p className="subtitle">Position: Doctor</p>
+        </article>
+</div>
         );
     }
 }
 
 export default ProfileCard;
+
 

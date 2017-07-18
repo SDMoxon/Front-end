@@ -1,0 +1,28 @@
+#profile-photo{
+    height: 100px;
+    width: auto;
+}
+
+.is-vertical{
+height: 500px;
+width: 600px;
+}
+
+#search-bar{
+    height:400px;
+    
+}
+
+#date {
+    width: 100px;
+}
+
+#wardSearch{
+  
+    width: 40px;
+
+}
+
+#patientList{
+    width: 30px;
+}
