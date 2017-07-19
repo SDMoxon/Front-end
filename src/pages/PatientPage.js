@@ -3,9 +3,10 @@ import React from 'react';
 import MedicalRecords from '../components/MedicalRecords';
 import PatientSummary from '../components/PatientSummary';
 import VitalsDisplay from '../components/VitalsDisplay';
+import StaffTasks from '../components/StaffTasks';
 import NavBar from '../components/NavBar';
 
-// import './page_styles/LoginPage.css';
+
 
 class PatientPage extends React.Component {
     render () {
@@ -23,7 +24,7 @@ class PatientPage extends React.Component {
 
     </div>
      <div className="column is-3">
-     
+     <StaffTasks/>
 
     </div>
        <div className="column is-1">
