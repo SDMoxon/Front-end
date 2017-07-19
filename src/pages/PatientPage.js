@@ -1,9 +1,9 @@
 import React from 'react';
 
 import MedicalRecords from '../components/MedicalRecords';
+import PatientSummary from '../components/PatientSummary';
 
-
-//import './page_styles/LoginPage.css';
+// import './page_styles/LoginPage.css';
 
 class PatientPage extends React.Component {
     render () {
@@ -14,9 +14,7 @@ class PatientPage extends React.Component {
     <div className="tile">
       <div className="tile is-parent is-vertical">
        <MedicalRecords/>
-        <article  id='search-bar'className="tile is-child notification">
-                    
-        </article>
+       <PatientSummary/>
       </div>
     </div>
     </div>
