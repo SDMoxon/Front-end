@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 
 // import {provider} from 'react-redux';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';// 
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';// 
 import createBrowserHistory from 'history/createBrowserHistory';
 import './css/bulma.css';
 
@@ -19,14 +19,12 @@ import PatientPage from './pages/PatientPage';
 const history = createBrowserHistory();
 
 ReactDOM.render(// <Provider store={store}>
-                   <Router history={history}>
-            
-                            <Switch>
-                                <Route exact path='/' component={LoginPage} />
-                                <Route path='/user/:username' component={UserPage}/>
-                                <Route exact path='/patient/:patient_id' component={PatientPage}/>
-                            </Switch>
-                    
-                    </Router>
-               // </Provider>, 
-                ,document.getElementById('app'));
+	<Router history={history}>
+		<Switch>
+			<Route exact path='/' component={LoginPage} />
+			<Route path='/user/:username' component={UserPage} />
+			<Route exact path='/patient/:patient_id' component={PatientPage} />
+		</Switch>
+	</Router>
+	// </Provider>, 
+	, document.getElementById('app'));
