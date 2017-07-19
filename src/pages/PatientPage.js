@@ -1,14 +1,27 @@
 import React from 'react';
 
+import MedicalRecords from '../components/MedicalRecords';
+
+
 //import './page_styles/LoginPage.css';
 
 class PatientPage extends React.Component {
     render () {
         return (
-            <div className="component-PatientPage">
-              <h1> Patient page</h1>
 
-            </div>
+ <div className="tile is-ancestor">
+  <div className="tile is-vertical is-5">
+    <div className="tile">
+      <div className="tile is-parent is-vertical">
+       <MedicalRecords/>
+        <article  id='search-bar'className="tile is-child notification">
+                    
+        </article>
+      </div>
+    </div>
+    </div>
+</div>
+      
         );
     }
 }
