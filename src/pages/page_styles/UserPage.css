@@ -8,21 +8,56 @@ height: 500px;
 width: 600px;
 }
 
-#search-bar{
-    height:400px;
+.column-1{
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
+    height: auto;
+
+}
+.column-2{
+    flex-direction: column;
+    align-content: space-between;
+    height: 650px;
+
+}
+
+.column-3{
+    flex-direction: column;
+    align-content: space-between;
+    height: 650px;
+
+}
+
+.component-UserPage {
+    display: flex;
+    flex-direction: row;
+}
+
+  .search-bar{
+    position: relative;
+    padding: 50px;
+} 
+
+.Ward-Search{
+    position: relative;
+    justify-content: center;
+    left:160px;
     
-}
-
-#date {
-    width: 100px;
-}
-
-#wardSearch{
-  
     width: 40px;
+}
+
+.Patient-List{
+    display: flex;
 
 }
 
-#patientList{
-    width: 30px;
+.time-date{
+    position: absolute;
+    bottom: 0;
+
+
 }
+
+
+

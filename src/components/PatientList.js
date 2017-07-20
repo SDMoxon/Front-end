@@ -4,19 +4,26 @@ class PatientList extends React.Component {
 	render () {
 		return (
 			<div className="component-patient-list">
-				<div className="panel-body">
-					<ul>
-						<li>Harry Potter</li>
-						<li>Harry Potter</li>
-						<li>Harry Potter</li>
-						<li>Harry Potter</li>
-						<li>Harry Potter</li>
-						<li>Harry Potter</li>
-						<li>Harry Potter</li>
-						<li>Harry Potter</li>
-						<li>Harry Potter</li>
-					</ul>
-				</div>
+				<table className='table is-narrow'>
+
+					<thead>
+						<tr></tr>
+						<th>NHS Number</th>
+						<th>Name</th>
+						<th>Condition</th>
+					</thead>
+					<tbody>
+						{this.props.patients.map((patient) => {
+							return ([<tr key={patient.id}>
+								<th>{patient.id}</th>
+								<td><a href="#" title="Ben Butcher">{patient.name}</a></td>
+								<td>{patient.condition}</td>
+							</tr>]);
+						})}
+					</tbody>
+
+
+				</table>
 			</div>
 		);
 	}

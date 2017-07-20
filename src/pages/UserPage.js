@@ -7,45 +7,195 @@ import './page_styles/UserPage.css';
 
 // import './page_styles/UserPage.css'
 
+const wards = {
+  'Florence': {
+    patients:[{
+		'id': '12345',
+		'name': 'Sarah Fowler',
+		'condition': 'Broken Foot'
+	},
+	{
+		'id': '12345',
+		'name': 'Barry Bridgewater',
+		'condition': 'Heart Transplant'
+	},
+	{
+		'id': '12345',
+		'name': 'Terry Hughs',
+		'condition': 'Broken Femur'
+	},
+	{
+		'id': '12345',
+		'name': 'Joanne Fitzgerald',
+		'condition': 'Dislocated Elbow'
+	},
+	{
+		'id': '12345',
+		'name': 'Bridget Jones',
+		'condition': 'Broken Heart'
+	},
+	{
+		'id': '12345',
+		'name': 'Mark Darcey',
+		'condition': 'Verbal'
+	}
+	]},
+'CCU':{
+    patients:[{
+		'id': '12345',
+		'name': 'Janice Brown',
+		'condition': 'Heart Attack'
+	},
+	{
+		'id': '12345',
+		'name': 'Fredrik Kappo',
+		'condition': 'Heart Transplant'
+	}
+	]},
+'Respiratory':{
+    patients:[{
+		'id': '12345',
+		'name': 'Jackie Chan',
+		'condition': 'Everything'
+	},
+	{
+		'id': '12345',
+		'name': 'Paulo Nutini',
+		'condition': 'Broken Voice box'
+	}
+	]},
+'Nightingale':{
+    patients:[{
+		'id': '12345',
+		'name': 'Joanne Fitzgerald',
+		'condition': 'Dislocated Elbow'
+	},
+	{
+		'id': '12345',
+		'name': 'Bridget Jones',
+		'condition': 'Broken Heart'
+	}
+	]},
+'Antenatal':{
+    patients:[{
+		'id': '12345',
+		'name': 'Janice Brown',
+		'condition': 'Heart Attack'
+	},
+	{
+		'id': '12345',
+		'name': 'Fredrik Kappo',
+		'condition': 'Heart Transplant'
+	},{
+		'id': '12345',
+		'name': 'Bridget Jones',
+		'condition': 'Broken Heart'
+	},
+	{
+		'id': '12345',
+		'name': 'Mark Darcey',
+		'condition': 'Verbal'
+	}
+	]},
+'ICU':{
+    patients:[{
+		'id': '12345',
+		'name': 'Janice Brown',
+		'condition': 'Heart Attack'
+	},
+	{
+		'id': '12345',
+		'name': 'Fredrik Kappo',
+		'condition': 'Heart Transplant'
+	}
+	]},
+'Maternity':{},
+'Neonatal':{},
+'Vascular':{},
+'OPU':{},
+'Surgery':{},
+'A&E':{},
+'Fracture':{},
+'XRAY':{}
+};
+
 class UserPage extends React.Component {
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      patients: [{
+		'id': '12345',
+		'name': 'Sarah Fowler',
+		'condition': 'Broken Foot'
+	},
+	{
+		'id': '12345',
+		'name': 'Barry Bridgewater',
+		'condition': 'Heart Transplant'
+	},
+	{
+		'id': '12345',
+		'name': 'Terry Hughs',
+		'condition': 'Broken Femur'
+	},
+	{
+		'id': '12345',
+		'name': 'Joanne Fitzgerald',
+		'condition': 'Dislocated Elbow'
+	},
+	{
+		'id': '12345',
+		'name': 'Bridget Jones',
+		'condition': 'Broken Heart'
+	},
+	{
+		'id': '12345',
+		'name': 'Mark Darcey',
+		'condition': 'Verbal'
+	}
+	]
+
+    };
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick (e) {
+    console.log(e.target.value);
+    e.preventDefault();
+    this.setState({patients: wards[e.target.value].patients});
+    console.log(this.state.patients);
+  }
+
   render () {
     return (
-      <div className="tile is-ancestor">
-        <div className="tile is-vertical is-5">
-          <div className="tile">
-            <div className="tile is-parent is-vertical">
-              <ProfileCard />
-              <article id='search-bar' className="tile is-child notification">
-                <SearchBar />
-              </article>
-            </div>
+      <div className="component-UserPage flex-container">
+        <div className="column-1 flex-item column is-4">
+          <ProfileCard />
+          <div className="search-bar">
+           <SearchBar />
           </div>
-          <div className="tile is-parent">
-            <article id='date' className="tile is-child notification">
-              <p >Thursday 7th July 2020      14:32</p>
-              <div className="content">
-              </div>
-            </article>
+          <div className="time-date flex-item">
+            <p >Thursday 7th July 2020      14:32</p>
           </div>
+
         </div>
-        <div id='wardSearch' className="tile is-parent">
-          <article className="tile is-child notification">
-            <p>Wards:</p>
-            <WardSearch />
-          </article>
+         <div className="column-2 flex-item column is-3">
+           <div className="Ward-Search">
+            <WardSearch handleClick={this.handleClick} wardNames={Object.keys(wards)}/>
+           </div>
+
         </div>
-        <div id='patientList' className="tile is-parent">
-          <article className="tile is-child notification">
-            <div className="content">
-              <p>Patient list:</p>
-              <PatientList />
-            </div>
-          </article>
+         <div className="column-3 flex-item column is-5">
+           <div className="Patient-List">
+             <PatientList patients={this.state.patients}/>
+           </div>
+
         </div>
+        
       </div>
     );
   }
 }
 
 export default UserPage;
-
