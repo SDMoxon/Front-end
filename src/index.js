@@ -1,3 +1,6 @@
+/* global exact:true*/
+/* eslint no-undef: "error"*/
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import logger from 'redux-logger';
