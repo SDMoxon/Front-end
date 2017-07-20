@@ -1,7 +1,23 @@
 .component-SearchBar{
-    display: flex;
     height: 100%;
+    max-height: 200px;
+
     
 
 }
+
+#dropdown{
+    height: 100%;
+    max-height: 350px;
+    overflow-y: scroll;
+    flex:1;
+    flex-direction: column;
+
+}
+
+.searchbox{
+    width:300px;
+}
+
+
 

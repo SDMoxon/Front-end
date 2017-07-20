@@ -80,8 +80,8 @@ class SearchBar extends React.Component {
 		return (
 			<div className="component-SearchBar">
 				<form className='search-for-patient'>
-					<span><input onChange={this.handleChange} className="input" type="text" placeholder="Search..." /></span>
-					{this.state.input.length > 0 ? <div className='card scroll-box'>{searchPatients}</div> : <p></p>}
+					<div className='searchbox'><input onChange={this.handleChange} className="input" type="text" placeholder="Search..." /></div>
+					{this.state.input.length > 0 ? <div id='dropdown'className='card scroll-box'>{searchPatients}</div> : <p></p>}
 
 
 				</form>
