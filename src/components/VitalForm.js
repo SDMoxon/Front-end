@@ -64,7 +64,6 @@ class VitalForm extends React.Component {
 				</div>
 			);
 		}
-
 		return (
 			<div></div>
 		);

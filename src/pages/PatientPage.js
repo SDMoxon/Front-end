@@ -7,16 +7,19 @@ import StaffTasks from '../components/StaffTasks';
 import NavBar from '../components/NavBar';
 import VitalForm from '../components/VitalForm';
 import CurrentMeds from '../components/CurrentMeds';
+import TestResults from '../components/TestResults';
 
 class PatientPage extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {
 			vitalIsOpen: false,
-			medsIsOpen : false
+			medsIsOpen: false,
+			testResIsOpen: false
 		};
 		this.toggleVitalForm = this.toggleVitalForm.bind(this);
 		this.toggleCurrentMeds = this.toggleCurrentMeds.bind(this);
+		this.toggleTestResults = this.toggleTestResults.bind(this);
 	}
 
 	toggleVitalForm () {
@@ -25,9 +28,15 @@ class PatientPage extends React.Component {
 		});
 	}
 
-		toggleCurrentMeds () {
+	toggleCurrentMeds () {
 		this.setState({
 			medsIsOpen: !this.state.medsIsOpen
+		});
+	}
+
+	toggleTestResults () {
+		this.setState({
+			testResIsOpen: !this.state.testResIsOpen
 		});
 	}
 
@@ -49,6 +58,10 @@ class PatientPage extends React.Component {
 							showMeds={this.state.medsIsOpen}
 							onClose={this.toggleCurrentMeds}
 						/>
+						<TestResults
+							showTestRes={this.state.testResIsOpen}
+							onClose={this.toggleTestResults}
+						/>
 					</div>
 					<div className="column is-3">
 						<StaffTasks />
@@ -57,6 +70,7 @@ class PatientPage extends React.Component {
 						<NavBar
 							toggleVitalForm={this.toggleVitalForm}
 							toggleCurrentMeds={this.toggleCurrentMeds}
+							toggleTestResults={this.toggleTestResults}
 						/>
 					</div>
 				</div>
