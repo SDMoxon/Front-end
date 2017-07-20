@@ -199,7 +199,7 @@ class UserPage extends React.Component {
 				</div>
 				<div className="column-3 flex-item column is-5">
 					<div className="Patient-List">
-						<PatientList patients={this.state.patients} />
+						{this.state.patients ? <PatientList patients={this.state.patients} /> : null}
 					</div>
 
 				</div>
