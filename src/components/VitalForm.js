@@ -8,7 +8,14 @@ class VitalForm extends React.Component {
 	render () {
 		if (this.props.showVital) {
 			return (
-				<div className="VitalForm">
+				<div className="component-vitalForm">
+					<nav className="level">
+						<div className="level-item">
+							<div>
+								<p className="title">Enter Latest Vitals</p>
+							</div>
+						</div>
+					</nav>
 
 					<div className="field">
 						<label className="label">Temperature</label>

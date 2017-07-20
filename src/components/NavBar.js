@@ -18,7 +18,7 @@ class NavBar extends React.Component {
 					<button onClick={this.props.toggleVitalForm}>
 						<i className="fa fa-thermometer-three-quarters" aria-hidden="true"></i>
 					</button>
-					<button >
+					<button onClick={this.props.toggleCurrentMeds}>
 						<i className="fa fa-medkit" aria-hidden="true"></i>
 					</button>
 					<button >
@@ -33,6 +33,7 @@ class NavBar extends React.Component {
 export default NavBar;
 
 NavBar.propTypes = {
-	toggleVitalForm: PropTypes.func.isRequired
+	toggleVitalForm: PropTypes.func.isRequired,
+	toggleCurrentMeds: PropTypes.func.isRequired
 
 };
