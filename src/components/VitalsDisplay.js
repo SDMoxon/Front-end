@@ -1,43 +1,28 @@
 import React from 'react';
 
-// import './component_styles/ProfileCard.css';
+import './component_styles/VitalsDisplay.css';
 
 class VitalsDisplay extends React.Component {
 	render () {
 		return (
-			<div className="component-VitalsDisplay panel columns">
-				<div className="column">
-					<img
-						className='image'
-						src="https://us.123rf.com/450wm/jcdesign/jcdesign1108/jcdesign110800005/10264326-healthy-heart-beat-on-monitor-screen-medical-illustration.jpg?ver=6"
-						alt="heart rate moitor"
-						height="100"
-						width="200" />
-					<h4>Heart Rate</h4>
-					<img
-						className='image'
-						src="https://lh4.ggpht.com/9RO4dUgbzMpt2gU4b4lN0tHxpxUkphsl5hdlARZ42xx18Ob1vsKOtJGVyIjfYnn8iA=w300"
-						alt="heart rate moitor"
-						height="100"
-						width="200" />
-					<h4>Respiritory Rate</h4>
+			<div className="component-VitalsDisplay">
+				<div className="heartRate column has-text-centered">
+					<h3 id='vitals-title'>Heart Rate</h3>
+					<img id='heart-logo' src='https://cdn.shopify.com/s/files/1/0978/6902/files/heart_icon.svg?11762261372195868514'/>
 				</div>
-				<div className="column">
-					<img
-						className='image'
-						src="http://www.bloodpressureatwatch.com/wp-content/uploads/2014/11/Wrist-Blood-Pressure-Monitor-with-Heart-Health-and-Hypertension-Indicator-Pulse-Rate-and-Large-LCD-Display-with-LED-Backlight-0-0.jpg"
-						alt="heart rate moitor"
-						height="100"
-						width="200" />
-					<h4>Blood Pressure</h4>
-					<img
-						className='image'
-						src="https://us.123rf.com/450wm/wisaanu99/wisaanu991505/wisaanu99150500089/40294107-thermometer-cool-winter-temperature-vector-illustration.jpg?ver=6"
-						alt="heart rate moitor"
-						height="100"
-						width="200" />
-					<h4>Temperature</h4>
+				<div className="heartRate column has-text-centered">
+					<h3 id='vitals-title'>Blood Pressure</h3>
+					<img id='heart-logo' src='https://d30y9cdsu7xlg0.cloudfront.net/png/26751-200.png'/>
 				</div>
+				<div className="heartRate column has-text-centered">
+					<h3 id='vitals-title'>Temperature</h3>
+					<img id='heart-logo' src='https://openclipart.org/image/2400px/svg_to_png/202633/1412206082.png'/>
+				</div>
+				<div className="heartRate column has-text-centered">
+					<h3 id='vitals-title'>Respiritory Rate</h3>
+					<img id='heart-logo' src='https://www.shareicon.net/download/2015/12/07/683504_medical.svg'/>
+				</div>
+				
 			</div>
 		);
 	}

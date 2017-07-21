@@ -1,0 +1,17 @@
+.component-VitalsDisplay {
+    width: 100%;
+    background-color: #53AFC6;
+}
+
+#vitals-title {
+     font-family: 'Asap', sans-serif;
+     color: white;
+     font-size: 12px;
+     font-weight: bold;
+    
+}
+
+#heart-logo {
+    height: 50px;
+    width: auto;
+}
