@@ -1,10 +1,10 @@
 import React from 'react';
 
-import SinglePatientSearch from './SinglePatientSearch'
+import SinglePatientSearch from './SinglePatientSearch';
 import './component_styles/SearchBar.css';
 
 class SearchBar extends React.Component {
-	constructor(props) {
+	constructor (props) {
 		super(props);
 		this.state = {
 			input: '',
@@ -52,7 +52,7 @@ class SearchBar extends React.Component {
 					'NHSNumber': 'NH772472813'
 				}
 			}
-		}
+		};
 		this.handleChange = this.handleChange.bind(this);
 		this.filterNames = this.filterNames.bind(this);
 	}
@@ -62,7 +62,7 @@ class SearchBar extends React.Component {
 		this.setState({ input: e.target.value });
 	}
 	filterNames (obj, str) {
-		let result = []
+		let result = [];
 		for (let key in obj) {
 			var regexp = new RegExp(str, 'gi');
 			if (regexp.test(obj[key].name)) {
@@ -73,10 +73,10 @@ class SearchBar extends React.Component {
 	
 
 	}
-	render() {
+	render () {
 		const searchPatients = this.filterNames(this.state.patients, this.state.input).map((patient) => {
-			return (<SinglePatientSearch key={patient.name} name={patient.name} ward={patient.ward} condition={patient.condition} />)
-		})
+			return (<SinglePatientSearch key={patient.name} name={patient.name} ward={patient.ward} condition={patient.condition} />);
+		});
 		return (
 			<div className="component-SearchBar">
 				<form className='search-for-patient'>

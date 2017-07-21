@@ -7,10 +7,11 @@ class PatientList extends React.Component {
 				<table className='table is-narrow'>
 
 					<thead>
-						<tr></tr>
+						<tr>
 						<th>NHS Number</th>
 						<th>Name</th>
 						<th>Condition</th>
+						</tr>
 					</thead>
 					<tbody>
 						{this.props.patients.map((patient) => {

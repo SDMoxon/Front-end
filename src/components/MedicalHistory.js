@@ -4,6 +4,8 @@ import './component_styles/ProfileCard.css';
 
 class MedicalHistory extends React.Component {
   render () {
+     if (this.props.showMedHistory) {
+
     return (
       <div className="component-MedicalHistory">
         <h1 className="title">Patient Medical History:</h1>
@@ -24,6 +26,10 @@ class MedicalHistory extends React.Component {
         <p className="">Surgery: N/A</p>
         <h4 className="">Notes: N/A</h4>
       </div>
+    );
+  }
+  return (
+      <div></div>
     );
   }
 }

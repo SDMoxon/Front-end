@@ -8,6 +8,7 @@ import NavBar from '../components/NavBar';
 import VitalForm from '../components/VitalForm';
 import CurrentMeds from '../components/CurrentMeds';
 import TestResults from '../components/TestResults';
+import './page_styles/PatientPage.css';
 
 class PatientPage extends React.Component {
 	constructor (props) {

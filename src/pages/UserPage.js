@@ -127,7 +127,7 @@ const wards = {
 };
 
 class UserPage extends React.Component {
-	constructor(props) {
+	constructor (props) {
 		super(props);
 
 		this.state = {
@@ -167,20 +167,20 @@ class UserPage extends React.Component {
 
 		this.handleClick = this.handleClick.bind(this);
 	}
-	handleClick(e) {
+	handleClick (e) {
 		console.log(e.target.value);
 		e.preventDefault();
 		this.setState({ patients: wards[e.target.value].patients });
 		console.log(this.state.patients);
 	}
 
-	render() {
+	render () {
 		setTimeout(() => {
 			this.setState({ currentDate: new Date() });
 		}, 1000);
 		let dateString = DateFormat(this.state.currentDate, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
 		return (
-			<div className="component-UserPage flex-container">
+			<div className="component-UserPage flex-container tablet 769px">
 				<div className="column-1 flex-item column is-4">
 					<ProfileCard />
 					<div className="search-bar">

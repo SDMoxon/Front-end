@@ -1,0 +1,19 @@
+.label{
+font-family: 'Asap', sans-serif;
+
+}  
+
+.input{
+      font-family: 'Asap', sans-serif;
+}
+
+#submitButton {
+      font-family: 'Asap', sans-serif;
+      background-color:#FF6908  ;
+      margin-top: 20px;
+}
+
+#cancelButton{
+    background-color: #494949  ;
+    margin-top: 20px;
+}

@@ -49,13 +49,13 @@ width: 600px;
 
 .Patient-List{
     display: flex;
+    min-width: 416px;
 
 }
 
 .time-date{
     position: absolute;
     bottom: 0;
-
 
 }
 

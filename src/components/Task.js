@@ -5,7 +5,7 @@ import './component_styles/Task.css';
 class Task extends React.Component {
 	render () {
 		return (
-			<div className="component-Task card">
+			<div className="component-Task card is-fullwidth">
 				<div className="card-header">
 					<h3 className='title'>Medication</h3>
 				</div>
