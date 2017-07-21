@@ -61,7 +61,6 @@ class MedicalRecords extends React.Component {
   }
 
   render () {
-    console.log('cancel button clicked!');
     return (
       <div className="component-medical-MedicalRecords card" >
         <nav className="level">

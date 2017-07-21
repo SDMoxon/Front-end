@@ -1,12 +1,10 @@
 .component-medical-MedicalRecords {
   width: 500px;
    background-color: #4FA7BB;
+   width: 100%
 }
 
-.level-item{
 
-
-}
 
 #edit{
 margin-top: 10px;
