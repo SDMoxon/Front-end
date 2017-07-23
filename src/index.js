@@ -16,6 +16,7 @@ import './css/bulma.css';
 import LoginPage from './pages/LoginPage';
 import UserPage from './pages/UserPage';
 import PatientPage from './pages/PatientPage';
+import MasterPage from './pages/MasterPage';
 
 // const store = createstore(reducer, applyMiddleware(thunk,logger));
 
@@ -25,8 +26,8 @@ ReactDOM.render(// <Provider store={store}>
 	<Router history={history}>
 		<Switch>
 			<Route exact path='/' component={LoginPage} />
-			<Route path='/user/:username' component={UserPage} />
-			<Route exact path='/patient/:patient_id' component={PatientPage} />
+			<Route path='/user/:username' component={() => <MasterPage><UserPage/></MasterPage>} />
+			<Route exact path='/patient/:patient_id' component={() => <MasterPage><PatientPage/></MasterPage>} />
 		</Switch>
 	</Router>
 	// </Provider>, 

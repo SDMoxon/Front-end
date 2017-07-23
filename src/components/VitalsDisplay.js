@@ -29,3 +29,5 @@ class VitalsDisplay extends React.Component {
 }
 
 export default VitalsDisplay;
+
+

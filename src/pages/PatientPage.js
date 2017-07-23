@@ -15,8 +15,8 @@ class PatientPage extends React.Component {
 		super(props);
 		this.state = {
 			vitalIsOpen: false,
-			medsIsOpen: false,
-			testResIsOpen: false,
+			medsIsOpen: true,
+			testResIsOpen: true,
 			navBarIsOpen: false
 		};
 		this.toggleVitalForm = this.toggleVitalForm.bind(this);
@@ -74,7 +74,7 @@ class PatientPage extends React.Component {
 					<div className="column is-3">
 						<StaffTasks />
 					</div>
-					<div className="column is-1">
+					<div id='nav-col' className="column is-1">
 						<NavBar
 							toggleVitalForm={this.toggleVitalForm}
 							toggleCurrentMeds={this.toggleCurrentMeds}

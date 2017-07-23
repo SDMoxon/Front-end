@@ -6,11 +6,12 @@ class ProfileCard extends React.Component {
 	render () {
 		return (
 			<div className="component-ProfileCard">
-				<article className="tile is-child notification is-primary">
-					<img id='profile-photo' src="https://drparivar.com/images/doctor-profile-pic.png" />
-					<p className="title">John Smith</p>
-					<p className="subtitle">Position: Doctor</p>
-				</article>
+					<img id='staff-image' src="https://drparivar.com/images/doctor-profile-pic.png" />
+					<p>Katie Johnson</p>
+					<p ><span className='staff-key'>Position:</span> Doctor</p>
+					<p ><span className='staff-key'>Registered At:</span> St Marys Hospital</p>
+					<p ><span className='staff-key'>Pager Number:</span> 609-412</p>
+					<p ><span className='staff-key'>Registration Number:</span> GP782664382</p>
 			</div>
 		);
 	}

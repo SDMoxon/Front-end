@@ -1,6 +1,5 @@
 import React from 'react';
 import ProfileCard from '../components/ProfileCard';
-import SearchBar from '../components/SearchBar';
 import WardSearch from '../components/WardSearch';
 import PatientList from '../components/PatientList';
 import './page_styles/UserPage.css';
@@ -127,7 +126,7 @@ const wards = {
 };
 
 class UserPage extends React.Component {
-	constructor (props) {
+	constructor(props) {
 		super(props);
 
 		this.state = {
@@ -167,14 +166,14 @@ class UserPage extends React.Component {
 
 		this.handleClick = this.handleClick.bind(this);
 	}
-	handleClick (e) {
+	handleClick(e) {
 		console.log(e.target.value);
 		e.preventDefault();
 		this.setState({ patients: wards[e.target.value].patients });
 		console.log(this.state.patients);
 	}
 
-	render () {
+	render() {
 		setTimeout(() => {
 			this.setState({ currentDate: new Date() });
 		}, 1000);
@@ -183,9 +182,6 @@ class UserPage extends React.Component {
 			<div className="component-UserPage flex-container tablet 769px">
 				<div className="column-1 flex-item column is-4">
 					<ProfileCard />
-					<div className="search-bar">
-						<SearchBar />
-					</div>
 					<div className="time-date flex-item">
 						<p >{dateString}</p>
 					</div>

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import './component_styles/VitalForm.css';
 
 class VitalForm extends React.Component {
-	constructor(props) {
+	constructor (props) {
 		super(props);
 	}
-	render() {
+	render () {
 		if (this.props.showVital) {
 			return (
 				<div className="component-vitalForm">

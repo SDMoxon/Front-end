@@ -1,0 +1,23 @@
+.component-ProfileCard{
+    background-color: #53AFC6;
+  
+    padding: 20px;
+}
+
+.component-ProfileCard p{
+    font-family: 'Asap', sans-serif;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+
+}
+
+.staff-key{
+    color:#454E57;
+    margin-right: 10px;
+}
+
+#staff-image{
+    height: 300px;
+}
+

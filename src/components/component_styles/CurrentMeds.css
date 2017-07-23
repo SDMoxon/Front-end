@@ -1,7 +1,57 @@
-.compontent-currentMeds .title {
+/* .compontent-currentMeds .title {
     margin-top: 20px;
-  font-family: 'Asap', sans-serif;
-  font-size: 30px;
+    font-family: 'Asap', sans-serif;
+    font-size: 30px;
+    background-color: #454E57;
  
+} */
+
+.compontent-currentMeds{
+
+    font-family: 'Asap', sans-serif;
+    font-size: 30px;
+    background-color: #454E57;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+}
+
+.table{
+  width: 100%;
+}
+
+.current-meds-title {
+  color: white;
+  font-weight: bold;
+}
+
+.table-titles{
+  color: #53AFC6;
+  font-size: 15px;
+}
+
+.med-details{
+  color:white;
+  font-weight: bold;
+}
+
+.meds-table{
+  width: 100%;
+}
+
+.med-keys{
+  color:#53AFC6;
+}
+
+#cancel-meds-button{
+  margin-top: 10px;
+  background-color: #FF6908;
+  margin-left: 10px;
+}
+
+#add-meds-button{
+  margin-top: 10px;
+  background-color: #53AFC6;
+
 }
 

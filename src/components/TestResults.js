@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import BloodRes from './BloodRes';
 import UrineRes from './UrineRes';
 
+import './component_styles/TestResults.css';
+
 class TestResults extends React.Component {
   constructor (props) {
     super(props);
@@ -31,7 +33,7 @@ class TestResults extends React.Component {
       return (
         <div className="compontent-TestResults">
           <nav className="level">
-            <button
+            <button id='bloods-button'
               className="level-item button is-success"
               onClick={this.toggleBlood}
             >Bloods
@@ -39,10 +41,12 @@ class TestResults extends React.Component {
             <button
               className="level-item button is-info"
               onClick={this.toggleUrine}
+              id='urine-button'
 
             >Urine</button>
             <button
               className="level-item button is-danger"
+              id='close-tests-button'
               onClick={this.props.onClose}
             >Close</button>
           </nav>

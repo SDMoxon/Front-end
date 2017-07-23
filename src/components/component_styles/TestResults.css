@@ -1,0 +1,21 @@
+#bloods-button{
+    background-color: #454E57;
+    font-family: 'Asap', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#urine-button{
+    background-color: #53AFC6;
+    font-family: 'Asap', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#close-tests-button{
+    background-color: #FF6908;
+    font-family: 'Asap', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    
+}

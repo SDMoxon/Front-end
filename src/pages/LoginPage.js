@@ -3,17 +3,28 @@ import React from 'react';
 import './page_styles/LoginPage.css';
 
 class LoginPage extends React.Component {
-	render () {
+	render() {
 		return (
 			<div className="component-LoginPage">
 				<div className="logo">
 					<i id='logo' className="fa fa-h-square" aria-hidden="true"></i>
 				</div>
 				<div id='users-login-details'>
-					<form className='login-form'>
-						<input className='username' placeholder="username" />
-					</form>
-					<input className='password' placeholder="password" />
+					<div className="field">
+						<input className="input" type="username" placeholder="Username" />
+					</div>
+					<div className="field">
+						<p className="control has-icons-left">
+							<input className="input" type="password" placeholder="Password" />
+						</p>
+					</div>
+					<div className="field">
+						<p className="control">
+							<button id='login-button' className="button is-success">
+								Login
+							</button>
+						</p>
+					</div>
 				</div>
 			</div>
 		);
