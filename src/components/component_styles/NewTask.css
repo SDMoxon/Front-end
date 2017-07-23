@@ -1,0 +1,19 @@
+.newCard-form #addTask {
+  font-family: 'Asap', sans-serif;
+  background-color: #FF6908;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px
+}
+
+.newCard-form #cancelAddTask {
+  font-family: 'Asap', sans-serif;
+  background-color: #494949;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px
+}
+
+.newCard-form #note {
+  margin-top: 10px
+}

@@ -5,6 +5,7 @@
 
 .card-header{
     justify-content: center;
+
 }
 
 #trash-can{
@@ -23,7 +24,11 @@
 .card-footer{
     height: 60px;
     padding: 10px;
+    
+
 }
 
 
-
+.card-content {
+    
+}

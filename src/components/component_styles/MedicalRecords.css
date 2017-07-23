@@ -1,15 +1,13 @@
 .component-medical-MedicalRecords {
   width: 500px;
-   background-color: #4FA7BB;
-   width: 100%
+  background-color: #4FA7BB;
+  width: 100%
 }
 
-
-
-#edit{
-margin-top: 10px;
-  background-color: #494949  ;
-   font-family: 'Asap', sans-serif;
-       font-size: 14px;
-    height: 32px;
+#edit {
+  margin-top: 10px;
+  background-color: #494949;
+  font-family: 'Asap', sans-serif;
+  font-size: 14px;
+  height: 32px;
 }

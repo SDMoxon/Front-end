@@ -177,8 +177,8 @@ class EditPatientRecord extends React.Component {
                         </div>
                     </div>
                 </div>
-                <button id='submitButton' className="button is-primary">Submit</button>
-                <button id='cancelButton' className="button is-danger">Cancel</button>
+                <button id='submitButton' type='submit' className="button is-primary">Submit</button>
+                <button id='cancelButton' type='cancel' className="button is-danger">Cancel</button>
             </div>
         );
     }
