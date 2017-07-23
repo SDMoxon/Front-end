@@ -1,0 +1,27 @@
+.component-vitalForm .title {
+  margin-top: 20px;
+  font-family: 'Asap', sans-serif;
+  font-size: 30px;
+  
+
+}
+
+.component-vitalForm .control  {
+  margin-bottom: 10px
+
+}
+
+.component-vitalForm .button {
+    font-family: 'Asap', sans-serif;
+  background-color: #FF6908;
+  margin-top: 23px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  color: white;
+  font-weight: bold
+}
+
+.component-vitalForm .is-white {
+  background-color: #4FA7BB;
+
+}
