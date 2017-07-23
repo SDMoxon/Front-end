@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class PatientList extends React.Component {
 	render () {
@@ -32,3 +33,6 @@ class PatientList extends React.Component {
 
 export default PatientList;
 
+PatientList.propTypes = {
+	patients: PropTypes.object.isRequired
+};

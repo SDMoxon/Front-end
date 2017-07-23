@@ -7,25 +7,20 @@ class NavBar extends React.Component {
 	constructor (props) {
 		super(props);
 	}
-
+	
 	render () {
+		if (this.props.showNavBar) {
+			return (
+				<div className="component-NavBar">
+					<i className="fa fa-window-close" aria-hidden="true"></i>
+					<i onClick={this.props.toggleVitalForm} className="fa fa-thermometer-three-quarters" aria-hidden="true"></i>
+					<i onClick={this.props.toggleCurrentMeds} className="fa fa-medkit" aria-hidden="true"></i>
+					<i onClick={this.props.toggleTestResults} className="fa fa-file-text" aria-hidden="true"></i>
+				</div>
+			);
+		}
 		return (
-			<div className="component-NavBar">
-				<ul>
-					<button >
-						<i className="fa fa-window-close" aria-hidden="true"></i>
-					</button>
-					<button onClick={this.props.toggleVitalForm}>
-						<i className="fa fa-thermometer-three-quarters" aria-hidden="true"></i>
-					</button>
-					<button onClick={this.props.toggleCurrentMeds}>
-						<i className="fa fa-medkit" aria-hidden="true"></i>
-					</button>
-					<button onClick={this.props.toggleTestResults}>
-						<i className="fa fa-file-text" aria-hidden="true"></i>
-					</button>
-				</ul>
-			</div>
+			<div></div>
 		);
 	}
 }
@@ -36,4 +31,5 @@ NavBar.propTypes = {
 	toggleVitalForm: PropTypes.func.isRequired,
 	toggleCurrentMeds: PropTypes.func.isRequired,
 	toggleTestResults: PropTypes.func.isRequired,
+	showNavBar: PropTypes.bool.isRequired
 };

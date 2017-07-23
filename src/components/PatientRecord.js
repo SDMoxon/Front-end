@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './component_styles/PatientRecord.css';
 
@@ -33,4 +34,7 @@ class PatientRecord extends React.Component {
 
 export default PatientRecord;
 
+PatientRecord.propTypes = {
+	showRecords: PropTypes.bool.isRequired
+};
 

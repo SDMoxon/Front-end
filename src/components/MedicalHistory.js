@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './component_styles/ProfileCard.css';
 
@@ -36,4 +37,6 @@ class MedicalHistory extends React.Component {
 
 export default MedicalHistory;
 
-
+MedicalHistory.propTypes = {
+	showMedHistory: PropTypes.bool.isRequired
+};

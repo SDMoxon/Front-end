@@ -7,14 +7,10 @@ class StaffTasks extends React.Component {
 		return (
 			<div className="component-StaffTasks panel">
 				<div className="panel-heading has-text-centered">
-					<h1>Staff Tasks</h1>
+					<h1>Staff Tasks <button className="button is-info">Add A Task</button></h1>
+					
 				</div>
 				<div className="panel-block">
-					<Task />
-					<Task />
-					<Task />
-					<Task />
-					<Task />
 					<Task />
 					<Task />
 					<Task />

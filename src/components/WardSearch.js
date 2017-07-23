@@ -1,6 +1,8 @@
 import React from 'react';
 import './component_styles/WardSearch.css';
 
+import PropTypes from 'prop-types';
+
 class WardSearch extends React.Component {
   render () {
     return (
@@ -20,3 +22,7 @@ class WardSearch extends React.Component {
 
 export default WardSearch;
 
+WardSearch.propTypes = {
+	handleClick: PropTypes.func.isRequired,
+  wardNames: PropTypes.string.isRequired
+};

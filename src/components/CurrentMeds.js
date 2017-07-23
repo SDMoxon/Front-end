@@ -5,6 +5,7 @@ class CurrentMeds extends React.Component {
   constructor (props) {
     super(props);
   }
+  
   render () {
     if (this.props.showMeds) {
       return (

@@ -16,11 +16,13 @@ class PatientPage extends React.Component {
 		this.state = {
 			vitalIsOpen: false,
 			medsIsOpen: false,
-			testResIsOpen: false
+			testResIsOpen: false,
+			navBarIsOpen: false
 		};
 		this.toggleVitalForm = this.toggleVitalForm.bind(this);
 		this.toggleCurrentMeds = this.toggleCurrentMeds.bind(this);
 		this.toggleTestResults = this.toggleTestResults.bind(this);
+		this.toggleNavBar = this.toggleNavBar.bind(this);
 	}
 
 	toggleVitalForm () {
@@ -38,6 +40,11 @@ class PatientPage extends React.Component {
 	toggleTestResults () {
 		this.setState({
 			testResIsOpen: !this.state.testResIsOpen
+		});
+	}
+	toggleNavBar () {
+		this.setState({
+			navBarIsOpen: !this.state.navBarIsOpen
 		});
 	}
 
@@ -72,7 +79,13 @@ class PatientPage extends React.Component {
 							toggleVitalForm={this.toggleVitalForm}
 							toggleCurrentMeds={this.toggleCurrentMeds}
 							toggleTestResults={this.toggleTestResults}
+							showNavBar={this.state.navBarIsOpen}
 						/>
+						<i
+							onClick={this.toggleNavBar}
+							className="fa fa-bars"
+							aria-hidden="true"
+						></i>
 					</div>
 				</div>
 			</div>

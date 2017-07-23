@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {Link} from 'react-router-dom';
 
 import './component_styles/SinglePatientSearch.css';
@@ -18,3 +20,9 @@ class SinglePatientSearch extends React.Component {
 
 export default SinglePatientSearch;
 
+
+SinglePatientSearch.propTypes = {
+	name: PropTypes.string.isRequired,
+	ward: PropTypes.string.isRequired,
+	condition: PropTypes.string.isRequired
+};
