@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+
 import './component_styles/PatientRecord.css';
-import * as actions from '../actions/PatientPage.actions';
+
 import Spinner from 'react-spinkit';
 
 class PatientRecord extends React.Component {
@@ -13,10 +13,6 @@ class PatientRecord extends React.Component {
     };
   }
 
-  componentDidMount () {
-    this.props.fetchPatientRecord();
-
-  }
   render () {
     if (this.props.showRecords) {
       return (
@@ -42,28 +38,12 @@ class PatientRecord extends React.Component {
   }
 
 }
-  function mapDispatchToProps (dispatch) {
-    return {
-      fetchPatientRecord: () => {
-        dispatch(actions.fetchPatientRecord());
-      }
-    };
-  }
 
-  function mapStateToProps (state) {
-    
-    return {
-      patient: state.patient,
-      loading: state.loading
-    };
-  }
-
-export default connect(mapStateToProps, mapDispatchToProps)(PatientRecord);
+export default PatientRecord;
 
 PatientRecord.propTypes = {
   showRecords: PropTypes.bool.isRequired,
   patient:  PropTypes.object.isRequired,
-  fetchPatientRecord: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired
 };
 

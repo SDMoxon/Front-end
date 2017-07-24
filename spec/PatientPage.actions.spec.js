@@ -24,4 +24,25 @@ describe('actions', () => {
             });
         });
     });
+     describe('updatePatientrecordRequest', () => {
+        it('should return the correct action for request', () => {
+            expect(actions.updatePatientRecordRequest()).to.eql({
+                type: types.UPDATE_PATIENT_RECORD_REQUEST
+            });
+        });
+         it('should return the correct action for success', () => {
+            let record = {name: 'Katie Johnson'};
+            expect(actions.updatePatientRecordSuccess(record)).to.eql({
+                type: types.UPDATE_PATIENT_RECORD_SUCCESS,
+                data: record
+            });
+        });
+         it('should return the correct action for error', () => {
+            let error = 'error';
+            expect(actions.updatePatientRecordError(error)).to.eql({
+                type: types.UPDATE_PATIENT_RECORD_ERROR,
+                data: error
+            });
+        });
+    });
 });

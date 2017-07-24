@@ -1,6 +1,9 @@
 import React from 'react';
 import PatientRecord from './PatientRecord';
 import MedicalHistory from './MedicalHistory';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import * as actions from '../actions/PatientPage.actions';
 import EditPatientRecord from './EditPatientRecord';
 import './component_styles/MedicalRecords.css';
 
@@ -16,6 +19,10 @@ class MedicalRecords extends React.Component {
     this.toggleMedicalHistory = this.toggleMedicalHistory.bind(this);
     this.closeBoth = this.closeBoth.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+  }
+  componentDidMount () {
+    this.props.fetchPatientRecord();
+
   }
 
   togglePatientRecord () {
@@ -78,21 +85,50 @@ class MedicalRecords extends React.Component {
             onClick={this.closeBoth}
           >Close</button>
         </nav>
-        {this.state.editIsToggled ?  <EditPatientRecord/> : 
-       
-        <PatientRecord
-          showRecords={this.state.patientRecordIsOpen}
-          onCloseRecords={this.togglePatientRecord}
-        />}
+        {this.state.editIsToggled ? <EditPatientRecord
+          patient={this.props.patient}
+          loading={this.props.loading}
+
+        /> :
+
+          <PatientRecord
+            showRecords={this.state.patientRecordIsOpen}
+            onCloseRecords={this.togglePatientRecord}
+            patient={this.props.patient}
+            loading={this.props.loading}
+          />}
         <MedicalHistory
           showMedHistory={this.state.medicalHistoryIsOpen}
           onCloseMedHistory={this.toggleMedicalHistory}
         />
-       <button id='edit' onClick={this.handleEdit}className="button is-danger">Edit...</button>
+        <button id='edit' onClick={this.handleEdit} className="button is-danger">Edit...</button>
 
       </div>
     );
   }
 }
 
-export default MedicalRecords;
+function mapDispatchToProps (dispatch) {
+  return {
+    fetchPatientRecord: () => {
+      dispatch(actions.fetchPatientRecord());
+    }
+  };
+}
+
+function mapStateToProps (state) {
+
+  return {
+    patient: state.patient,
+    loading: state.loading
+  };
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MedicalRecords);
+
+MedicalRecords.propTypes = {
+  patient: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
+  fetchPatientRecord: PropTypes.func
+};

@@ -1,35 +1,36 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './component_styles/EditPatientRecord.css';
 
 class EditPatientRecord extends React.Component {
     constructor (props) {
         super(props);
+        const patient = this.props.patient.personalDetails;
         this.state = {
-            name: 'Miss Sarah Fowler',
-            NHSNumber: 'NHS4932857135',
-            DOB: '10/11/1988',
-            gender: 'Male',
-            addressLine1: '123 Milky Way',
-            addressLine2: '',
-            city: 'Chester',
-            postcode: 'CH45CW',
-            contactNumber: '0895733821',
-            relationship: 'Father',
-            nextKinContact: '209583145886',
-            nextKinName: 'Jim Jenkins',
-            gpName: 'Dr Philpot',
-            gpAddressLine1: '24 Hazlewood Ave',
-            gpCity: 'Manchester',
-            gpPostcode: 'MA1 4SW',
-            occupation: 'Dancer',
-            bloodType: 'A+',
+            firstNames: patient.firstNames,
+            NHSNumber: patient.NHSnumber,
+            DOB: patient.demographics.dob.substring(0, 10),
+            gender: patient.gender,
+            addressLine1: 'TBC',
+            addressLine2: 'TBC',
+            nextKinName: patient.nextOfKin.name,
+            nextKinRelationship: patient.nextOfKin.relationship,
+            nextKinContact: patient.nextOfKin.contact,
+            gpName: patient.GP.name,
+            gpAddressLine1: patient.GP.surgery,
+            gpCity: patient.GP.address,
+            gpPostcode: ' TBC',
+            occupation: patient.occupation,
+            bloodType: patient.bloodType,
             cancelIsToggled: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleGender = this.handleGender.bind(this);
         this.handleBloodType = this.handleBloodType.bind(this);
     }
+
+
     handleChange (e) {
         e.preventDefault();
         let key = e.target.id;
@@ -49,8 +50,12 @@ class EditPatientRecord extends React.Component {
             bloodType: e.target.value
         });
     }
-   
+    handleSubmit () {
+
+    }
+
     render () {
+        console.log(this.state.nextKinContact);
         return (
             <div className="component-EditPatientRecord">
                 <div className="field">
@@ -62,13 +67,13 @@ class EditPatientRecord extends React.Component {
                 <div className="field">
                     <label className="label">Name</label>
                     <div className="control">
-                        <input id="name" className="input" onChange={this.handleChange} type="text" placeholder="Name" value={this.state.name} />
+                        <input id="firstNames" className="input" onChange={this.handleChange} type="text" placeholder="Name" value={this.state.firstNames} />
                     </div>
                 </div>
                 <div className="field">
                     <label className="label">D.0.B</label>
                     <div className="control">
-                        <input id="DOB" className="input" onChange={this.handleChange} type="text" placeholder="DD/MM/YY" value={this.state.NHSNumber} />
+                        <input id="DOB" className="input" onChange={this.handleChange} type="text" placeholder="DD/MM/YY" value={this.state.DOB} />
 
                     </div>
                 </div>
@@ -118,7 +123,7 @@ class EditPatientRecord extends React.Component {
                     <label className="label">Next of kin:</label>
                     <label className="label">Relationship:</label>
                     <div className="control">
-                        <input id='relationship' className="input" onChange={this.handleChange} type="text" placeholder="relationship" value={this.state.relationship} />
+                        <input id='nextKinRelationship' className="input" onChange={this.handleChange} type="text" placeholder="relationship" value={this.state.nextKinRelationship} />
                     </div>
                     <label className="label">Name:</label>
                     <div className="control">
@@ -142,13 +147,13 @@ class EditPatientRecord extends React.Component {
                         <input id='gpAddressLine1' className="input" onChange={this.handleChange} type="text" placeholder="GP" value={this.state.gpAddressLine1} />
                     </div>
                 </div>
-                  <div className="field">
+                <div className="field">
                     <label className="label">City:</label>
                     <div className="control">
                         <input id='gpCity' className="input" onChange={this.handleChange} type="text" placeholder="GP" value={this.state.gpCity} />
                     </div>
                 </div>
-                  <div className="field">
+                <div className="field">
                     <label className="label">Postcode:</label>
                     <div className="control">
                         <input id='gpPostcode' className="input" onChange={this.handleChange} type="text" placeholder="GP" value={this.state.gpPostcode} />
@@ -177,7 +182,7 @@ class EditPatientRecord extends React.Component {
                         </div>
                     </div>
                 </div>
-                <button id='submitButton' type='submit' className="button is-primary">Submit</button>
+                <button id='submitButton' onSubmit={this.handleSubmit} type='submit' className="button is-primary">Submit</button>
                 <button id='cancelButton' type='cancel' className="button is-danger">Cancel</button>
             </div>
         );
@@ -187,3 +192,7 @@ class EditPatientRecord extends React.Component {
 export default EditPatientRecord;
 
 
+EditPatientRecord.propTypes = {
+    patient: PropTypes.object.isRequired,
+    loading: PropTypes.bool.isRequired
+};
