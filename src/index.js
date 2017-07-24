@@ -3,12 +3,13 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import logger from 'redux-logger';
-// import {createstore, applyMiddleware} from 'redux';
-// import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import {patientReducer} from './reducers/reducer.PatientPage';
 
 
-// import {provider} from 'react-redux';
+import {Provider} from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';// 
 import createBrowserHistory from 'history/createBrowserHistory';
 import './css/bulma.css';
@@ -18,11 +19,10 @@ import UserPage from './pages/UserPage';
 import PatientPage from './pages/PatientPage';
 import MasterPage from './pages/MasterPage';
 
-// const store = createstore(reducer, applyMiddleware(thunk,logger));
-
+const store = createStore(patientReducer, applyMiddleware(thunk,logger));
 const history = createBrowserHistory();
 
-ReactDOM.render(// <Provider store={store}>
+ReactDOM.render(<Provider store={store}>
 	<Router history={history}>
 		<Switch>
 			<Route exact path='/' component={LoginPage} />
@@ -30,5 +30,5 @@ ReactDOM.render(// <Provider store={store}>
 			<Route exact path='/patient/:patient_id' component={() => <MasterPage><PatientPage/></MasterPage>} />
 		</Switch>
 	</Router>
-	// </Provider>, 
+	</Provider>
 	, document.getElementById('app'));

@@ -75,17 +75,16 @@ class PatientPage extends React.Component {
 						<StaffTasks />
 					</div>
 					<div id='nav-col' className="column is-1">
+						<i
+							className="fa fa-bars"
+							onClick={this.toggleNavBar}
+						></i>
 						<NavBar
 							toggleVitalForm={this.toggleVitalForm}
 							toggleCurrentMeds={this.toggleCurrentMeds}
 							toggleTestResults={this.toggleTestResults}
 							showNavBar={this.state.navBarIsOpen}
 						/>
-						<i
-							onClick={this.toggleNavBar}
-							className="fa fa-bars"
-							aria-hidden="true"
-						></i>
 					</div>
 				</div>
 			</div>
