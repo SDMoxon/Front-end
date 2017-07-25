@@ -126,7 +126,7 @@ const wards = {
 };
 
 class UserPage extends React.Component {
-	constructor(props) {
+	constructor (props) {
 		super(props);
 
 		this.state = {
@@ -166,14 +166,14 @@ class UserPage extends React.Component {
 
 		this.handleClick = this.handleClick.bind(this);
 	}
-	handleClick(e) {
+	handleClick (e) {
 		console.log(e.target.value);
 		e.preventDefault();
 		this.setState({ patients: wards[e.target.value].patients });
 		console.log(this.state.patients);
 	}
 
-	render() {
+	render () {
 		setTimeout(() => {
 			this.setState({ currentDate: new Date() });
 		}, 1000);

@@ -9,7 +9,7 @@ const URL = 'https://us-central1-live-northcoders-nhs-app.cloudfunctions.net';
 export function fetchPatientRecord () {
     return function (dispatch) {
         dispatch(fetchPatientRecordRequest());
-        axios.get(`${URL}/getPatientById?id=-Kp_RG6tpBQcRm3RrO8Q`)
+        axios.get(`${URL}/getPatientById?id=-KptL4lyQlhPV5QUIsDP`)
             .then(res => {
                 dispatch(fetchPatientRecordSuccess(res.data));
             })

@@ -9,6 +9,10 @@ import VitalForm from '../components/VitalForm';
 import CurrentMeds from '../components/CurrentMeds';
 import TestResults from '../components/TestResults';
 import './page_styles/PatientPage.css';
+import { connect } from 'react-redux';
+import * as actions from '../actions/PatientPage.actions';
+import Spinner from 'react-spinkit';
+import PropTypes from 'prop-types';
 
 class PatientPage extends React.Component {
 	constructor (props) {
@@ -17,7 +21,8 @@ class PatientPage extends React.Component {
 			vitalIsOpen: false,
 			medsIsOpen: true,
 			testResIsOpen: true,
-			navBarIsOpen: false
+			navBarIsOpen: false,
+			patient: {}
 		};
 		this.toggleVitalForm = this.toggleVitalForm.bind(this);
 		this.toggleCurrentMeds = this.toggleCurrentMeds.bind(this);
@@ -47,14 +52,30 @@ class PatientPage extends React.Component {
 			navBarIsOpen: !this.state.navBarIsOpen
 		});
 	}
+	componentDidMount () {
+		this.props.fetchPatientRecord();
+		this.forceUpdate();
+
+	}
 
 	render () {
+		console.log('PATIENT PAGE >>>', this.props.patient);
 		return (
+			
 			<div className="patient-page">
+				{this.props.loading && (
+          <Spinner name='pacman' color='blue' fadeIn='none'/>
+        )}
 				<div className="columns">
 					<div className="column is-4">
-						<MedicalRecords />
-						<PatientSummary />
+						<MedicalRecords
+							patient={this.props.patient}
+							loading={this.props.loading}
+						/>
+						<PatientSummary 
+							patient={this.props.patient}
+							loading={this.props.loading}
+						/>
 						<VitalsDisplay />
 					</div>
 					<div className="column is-4">
@@ -92,5 +113,27 @@ class PatientPage extends React.Component {
 	}
 }
 
-export default PatientPage;
+function mapDispatchToProps (dispatch) {
+	return {
+		fetchPatientRecord: () => {
+			dispatch(actions.fetchPatientRecord());
+		}
+	};
+}
+
+function mapStateToProps (state) {
+
+	return {
+		patient: state.patient,
+		loading: state.loading
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PatientPage);
+
+PatientPage.propTypes = {
+    loading: PropTypes.bool.isRequired,
+	patient: PropTypes.object.isRequired,
+	fetchPatientRecord: PropTypes.func.isRequired
+  };
 

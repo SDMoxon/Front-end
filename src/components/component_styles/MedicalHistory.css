@@ -1,0 +1,38 @@
+.medHistory-title{
+    margin-right: 10px;
+    font-family: 'Asap', sans-serif;
+    font-size: 15px;
+  
+}
+
+.medHistory-info{
+    color: white;
+      font-family: 'Asap', sans-serif;
+      font-weight: bold;
+}
+
+#familyHistory-title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.component-MedicalHistory{
+    padding: 10px;
+     line-height: 25px;
+}
+
+#medHistory-title{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+
+}
+
+#Treatment{
+    font-size: 18px;
+}

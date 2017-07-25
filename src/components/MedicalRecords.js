@@ -2,8 +2,8 @@ import React from 'react';
 import PatientRecord from './PatientRecord';
 import MedicalHistory from './MedicalHistory';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import * as actions from '../actions/PatientPage.actions';
+// import { connect } from 'react-redux';
+// import * as actions from '../actions/PatientPage.actions';
 import EditPatientRecord from './EditPatientRecord';
 import './component_styles/MedicalRecords.css';
 
@@ -20,10 +20,7 @@ class MedicalRecords extends React.Component {
     this.closeBoth = this.closeBoth.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
   }
-  componentDidMount () {
-    this.props.fetchPatientRecord();
 
-  }
 
   togglePatientRecord () {
     if (this.state.medicalHistoryIsOpen) {
@@ -100,6 +97,8 @@ class MedicalRecords extends React.Component {
         <MedicalHistory
           showMedHistory={this.state.medicalHistoryIsOpen}
           onCloseMedHistory={this.toggleMedicalHistory}
+          patient={this.props.patient}
+          loading={this.props.loading}
         />
         <button id='edit' onClick={this.handleEdit} className="button is-danger">Edit...</button>
 
@@ -108,24 +107,7 @@ class MedicalRecords extends React.Component {
   }
 }
 
-function mapDispatchToProps (dispatch) {
-  return {
-    fetchPatientRecord: () => {
-      dispatch(actions.fetchPatientRecord());
-    }
-  };
-}
-
-function mapStateToProps (state) {
-
-  return {
-    patient: state.patient,
-    loading: state.loading
-  };
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(MedicalRecords);
+export default MedicalRecords;
 
 MedicalRecords.propTypes = {
   patient: PropTypes.object.isRequired,

@@ -3,7 +3,7 @@ import React from 'react';
 import './page_styles/LoginPage.css';
 
 class LoginPage extends React.Component {
-	render() {
+	render () {
 		return (
 			<div className="component-LoginPage">
 				<div className="logo">
