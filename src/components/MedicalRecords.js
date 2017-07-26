@@ -19,6 +19,7 @@ class MedicalRecords extends React.Component {
     this.toggleMedicalHistory = this.toggleMedicalHistory.bind(this);
     this.closeBoth = this.closeBoth.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+    this.toggleEdit = this.toggleEdit.bind(this);
   }
 
 
@@ -50,6 +51,13 @@ class MedicalRecords extends React.Component {
     }
   }
 
+  toggleEdit () {
+    this.setState ({
+      editIsToggled : !this.state.editIsToggled,
+      patientRecordIsOpen: !this.state.patientRecordIsOpen
+    });
+  }
+
   closeBoth () {
     this.setState({
       medicalHistoryIsOpen: false,
@@ -60,7 +68,10 @@ class MedicalRecords extends React.Component {
 
   handleEdit (e) {
     e.preventDefault();
-    this.setState({ editIsToggled: !this.state.editIsToggled });
+    this.setState({ 
+      patientRecordIsOpen: !this.state.patientRecordIsOpen,
+      editIsToggled: !this.state.editIsToggled 
+    });
 
   }
 
@@ -85,6 +96,7 @@ class MedicalRecords extends React.Component {
         {this.state.editIsToggled ? <EditPatientRecord
           patient={this.props.patient}
           loading={this.props.loading}
+          toggleEdit={this.toggleEdit}
 
         /> :
 
@@ -93,6 +105,7 @@ class MedicalRecords extends React.Component {
             onCloseRecords={this.togglePatientRecord}
             patient={this.props.patient}
             loading={this.props.loading}
+            handleEdit={this.handleEdit}
           />}
         <MedicalHistory
           showMedHistory={this.state.medicalHistoryIsOpen}
@@ -100,7 +113,7 @@ class MedicalRecords extends React.Component {
           patient={this.props.patient}
           loading={this.props.loading}
         />
-        <button id='edit' onClick={this.handleEdit} className="button is-danger">Edit...</button>
+        
 
       </div>
     );

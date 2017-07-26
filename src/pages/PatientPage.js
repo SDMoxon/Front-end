@@ -59,12 +59,12 @@ class PatientPage extends React.Component {
 	}
 
 	render () {
-		console.log('PATIENT PAGE >>>', this.props.patient);
+	
 		return (
 			
 			<div className="patient-page">
 				{this.props.loading && (
-          <Spinner name='pacman' color='blue' fadeIn='none'/>
+           <Spinner name='ball-scale-ripple-multiple' color='#494949' fadeIn='none'/>
         )}
 				<div className="columns">
 					<div className="column is-4">

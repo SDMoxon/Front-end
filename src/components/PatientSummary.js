@@ -9,7 +9,6 @@ class PatientSummary extends React.Component {
     this.state = {};
   }
   render () {
-    console.log(this.props.patient);
       if (this.props.patient.personalDetails) {
 
     return (

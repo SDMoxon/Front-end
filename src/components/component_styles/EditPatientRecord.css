@@ -1,19 +1,35 @@
-.label{
-font-family: 'Asap', sans-serif;
+.label {
+      font-family: 'Asap', sans-serif;
+}
 
-}  
-
-.input{
+.input {
       font-family: 'Asap', sans-serif;
 }
 
 #submitButton {
       font-family: 'Asap', sans-serif;
-      background-color:#FF6908  ;
-      margin-top: 20px;
+      background-color: #FF6908;
+      margin-top: 30px;
 }
 
-#cancelButton{
-    background-color: #494949  ;
-    margin-top: 20px;
+#cancelButton {
+      font-family: 'Asap', sans-serif;
+      background-color: #494949;
+      margin-top: 30px;
+      margin-left: 20px;
+      margin-bottom: 20px;
+}
+
+#GPName {
+      margin-top: 40px;
+}
+
+#GPSurgery {
+      margin-top: 40px;
+}
+
+#NOK {
+      margin-top: 40px;
+      margin-bottom: 10px;
+      font-weight: bold;
 }

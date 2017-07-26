@@ -11,3 +11,10 @@
 #nav-col{
   background-color: #53AFC6;
 }
+
+.ball-scale-ripple-multiple {
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+
+}
