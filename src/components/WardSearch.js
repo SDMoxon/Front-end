@@ -8,13 +8,9 @@ class WardSearch extends React.Component {
     return (
 
       <div className="select is-multiple">
-        <select id='multi-select' multiple size='8' >
-          <option value="Albert Ward">Albert Ward</option>
           {this.props.wardNames.map((ward) => {
-            return <option key={ward} value={ward} onClick={this.props.handleClick}>{ward}</option>;
+            return <option className="card" key={ward} value={ward} onClick={this.props.handleClick}>{ward}</option>;
           })}
-    
-        </select>
       </div>
     );
   }
