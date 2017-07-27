@@ -27,8 +27,10 @@ ReactDOM.render(<Provider store={store}>
 	<Router history={history}>
 		<Switch>
 			<Route exact path='/' component={LoginPage} />
-			<Route path='/user/:username' component={() => <MasterPage><UserPage /></MasterPage>} />
-			<Route exact path='/patient/:patient_id' component={(props) => <MasterPage><PatientPage id={props.match.params.patient_id} /></MasterPage>} />
+			<MasterPage>
+				<Route path='/user/:username' component={UserPage} />
+				<Route exact path='/patient/:patient_id' component={PatientPage} />
+			</MasterPage>
 		</Switch>
 	</Router>
 </Provider>

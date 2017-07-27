@@ -21,8 +21,7 @@ class PatientPage extends React.Component {
 			vitalIsOpen: false,
 			medsIsOpen: true,
 			testResIsOpen: true,
-			navBarIsOpen: false,
-			patient: {}
+			navBarIsOpen: false
 		};
 		this.toggleVitalForm = this.toggleVitalForm.bind(this);
 		this.toggleCurrentMeds = this.toggleCurrentMeds.bind(this);
@@ -53,18 +52,21 @@ class PatientPage extends React.Component {
 		});
 	}
 	componentDidMount () {
-		this.props.fetchPatientRecord(this.props.id);
-		this.forceUpdate();
-
+		const { patient_id } = this.props.match.params;
+		this.props.fetchPatientRecord(patient_id);
 	}
 
 	render () {
-		return (
+		const { loading, patient } = this.props;
+		const { patient_id } = this.props.match.params;
+		if (loading || !patient) {
+			return (<div className="patient-page">
+				<Spinner name='ball-scale-ripple-multiple' color='#494949' fadeIn='none' />
+			</div>);
+		}
 
-			<div className="patient-page">
-				{this.props.loading && (
-					<Spinner name='ball-scale-ripple-multiple' color='#494949' fadeIn='none' />
-				)}
+		else if (patient) {
+			return (<div className="patient-page">
 				<div className="columns">
 					<div className="column is-4">
 						<MedicalRecords
@@ -95,7 +97,10 @@ class PatientPage extends React.Component {
 						/>
 					</div>
 					<div className="column is-3">
-						<StaffTasks />
+						<StaffTasks
+							patientId={patient_id}
+							patient={this.props.patient}
+						/>
 					</div>
 					<div id='nav-col' className="column is-1">
 						<i
@@ -110,15 +115,15 @@ class PatientPage extends React.Component {
 						/>
 					</div>
 				</div>
-			</div>
-		);
+			</div>);
+		}
 	}
 }
 
 function mapDispatchToProps (dispatch) {
 	return {
-		fetchPatientRecord: (id) => {
-			dispatch(actions.fetchPatientRecord(id));
+		fetchPatientRecord: (patient_id) => {
+			dispatch(actions.fetchPatientRecord(patient_id));
 		}
 	};
 }
@@ -137,7 +142,6 @@ PatientPage.propTypes = {
 	loading: PropTypes.bool.isRequired,
 	patient: PropTypes.object.isRequired,
 	fetchPatientRecord: PropTypes.func.isRequired,
-	id: PropTypes.string.isRequired,
-
+	match: PropTypes.object.isRequired
 };
 

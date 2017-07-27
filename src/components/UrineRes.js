@@ -45,7 +45,7 @@ class UrineRes extends React.Component {
               <tr>
                 <th id='urine-res-keys'>Glucose</th>
                 <td id='urine-test-data' >{urineRes['glucose']}</td>
-                <td><progress id='test' className="progress" value={String((urineRes['glucose'] / 900) * 100)} max="100"></progress></td>
+                <td><progress id='test' className="progress" value={String((urineRes['glucose'] / 700) * 100)} max="100"></progress></td>
                 <td id='urine-test-data'>200-900</td>
               </tr>
             </tbody>

@@ -9,7 +9,7 @@ const URL = 'https://us-central1-live-northcoders-nhs-app.cloudfunctions.net';
 export function fetchPatientRecord (id) {
 	return function (dispatch) {
 		dispatch(fetchPatientRecordRequest());
-		axios.get(`${URL}/getPatientById?id=${id}`)
+		return axios.get(`${URL}/getPatientById?id=${id}`)
 			.then(res => {
 				dispatch(fetchPatientRecordSuccess(res.data));
 			})
@@ -67,6 +67,44 @@ export function updatePatientRecordSuccess (newInfo) {
 export function updatePatientRecordError (error) {
 	return {
 		type: types.UPDATE_PATIENT_RECORD_ERROR,
+		data: error
+	};
+}
+
+// ADD STAFF TASK
+export function addStaffTask (newData, id) {
+	console.log({newData});
+	return function (dispatch) {
+		dispatch(addStaffTaskRequest());
+		return fetch(`${URL}/postCareLog?id=${id}`, {
+			method: 'POST',
+			body: JSON.stringify(newData)
+		})
+			.then(res => res.json())
+			.then((body) => {
+				dispatch(addStaffTaskSuccess(body));
+			})
+			.catch(err => {
+				dispatch(addStaffTaskError(err));
+			});
+	};
+}
+
+export function addStaffTaskRequest () {
+	return {
+		type: types.ADD_STAFF_TASK_REQUEST
+	};
+}
+
+export function addStaffTaskSuccess (newInfo) {
+	return {
+		type: types.ADD_STAFF_TASK_SUCCESS,
+		data: newInfo
+	};
+}
+export function addStaffTaskError (error) {
+	return {
+		type: types.ADD_STAFF_TASK_ERROR,
 		data: error
 	};
 }

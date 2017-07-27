@@ -17,7 +17,7 @@ class Task extends React.Component {
 					<h3>{this.props.note}</h3>
 				</div>
 				<div className="card-footer">
-					<p>Created By: {this.props.createdBy}</p>
+					<p><span id='createdBy'>Created By: </span>{this.props.createdBy}</p>
 					<p>Created At: {this.props.createdAt}</p>
 					<label id='checkbox' className="checkbox">
 						<input type="checkbox" />Done</label>
