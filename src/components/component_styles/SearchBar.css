@@ -1,10 +1,8 @@
 .component-SearchBar{
     height: 100%;
     max-height: 200px;
-    margin: 50px;
-
+    margin: 50px 50px 50px 50%;
     
-
 }
 
 #dropdown{

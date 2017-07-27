@@ -10,7 +10,7 @@ class MasterPage extends React.Component {
         return (
             <div className="compontent-MasterPage">
                 <div id='top-bar-container' className="columns">
-                    <div className="column is-9">
+                    <div className="column">
                         <div id='top-bar' className="row">
                             <Link to='/user/:userid'><img id='nav-profile-photo' src="https://drparivar.com/images/doctor-profile-pic.png" /></Link>
                             <div id='nav-staff-title'>
@@ -19,7 +19,7 @@ class MasterPage extends React.Component {
                         </div>
                         
                     </div>
-                    <div className="nav-search is-3">
+                    <div className="nav-search column">
                     <SearchBar/>
                     </div>
                 </div>
