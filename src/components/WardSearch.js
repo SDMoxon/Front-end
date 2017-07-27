@@ -6,11 +6,14 @@ import PropTypes from 'prop-types';
 class WardSearch extends React.Component {
   render () {
     return (
+      
+    
 
-      <div className="select is-multiple">
+      <div className="is-multiple">
           {this.props.wardNames.map((ward) => {
-            return <option className="card" key={ward} value={ward} onClick={this.props.handleClick}>{ward}</option>;
+            return <option id='eachWard' className="card" key={ward} value={ward} onClick={this.props.handleClick}>{ward}</option>;
           })}
+    
       </div>
     );
   }

@@ -9,42 +9,25 @@ width: 600px;
 }
 
 .column-1{
-    flex-direction: column;
-    justify-content: center;
-    align-content: space-between;
-    height: auto;
-
+height: auto;
 }
 .column-2{
-    flex-direction: column;
-    align-content: space-between;
-    height: 650px;
-
+height: 100vh;
 }
 
 .column-3{
-    flex-direction: column;
-    align-content: space-between;
-    height: 650px;
-
+ height: 100vh;
 }
 
-.component-UserPage {
-    display: flex;
-    flex-direction: row;
-}
-
-  .search-bar{
+.search-bar{
     position: relative;
     padding: 50px;
 } 
 
 .Ward-Search{
     position: relative;
-    justify-content: center;
     /*left:160px;*/
-    
-    width: 40px;
+    width: 100%;
 }
 
 .Patient-List{
@@ -53,15 +36,11 @@ width: 600px;
 
 }
 
-.time-date{
-    position: absolute;
-    bottom: 0;
-
-}
-
 .component-UserPage {
-    background-color: #53AFC6; 
-    height: 100vh
+    background-color: white; 
+   
 }
+
+
 
 

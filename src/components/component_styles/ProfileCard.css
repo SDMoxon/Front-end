@@ -1,23 +1,39 @@
 .component-ProfileCard{
     background-color: #53AFC6;
-  
+    width: 100%;
+    min-width: 30%;
     padding: 20px;
+    margin-left: 10px;
+    height: auto;
 }
 
 .component-ProfileCard p{
     font-family: 'Asap', sans-serif;
     font-size: 20px;
     color: white;
-    font-weight: bold;
-
 }
 
 .staff-key{
     color:#454E57;
     margin-right: 10px;
+    font-weight: bold;
 }
 
 #staff-image{
-    height: 300px;
+    max-width:200px;
+    max-height:200px;
+    width: auto;
+    height: auto;
 }
+
+.profileCardInfo{
+    color: white;
+  
+}
+
+#doctorsName{
+    font-weight: bold;
+    font-size: 25px;
+}
+
 

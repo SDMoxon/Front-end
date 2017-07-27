@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import './component_styles/PatientList.css'
+
 class PatientList extends React.Component {
 	render () {
 		return (
-			<div className="component-patient-list">
+			<div className="component-patient-list panel">
 				<table className='table is-narrow'>
 
 					<thead>
@@ -19,9 +21,9 @@ class PatientList extends React.Component {
 						{Object.keys(this.props.patients).map((key, i) => {
 							return (
 								[<tr key={i}>
-									<th>{this.props.patients[key]['NHS number']}</th>
-									<td><Link to={`/patient/${key}`}>{this.props.patients[key].name}</Link></td>
-									<td>{this.props.patients[key].condition}</td>
+									<th><span id='patientnhs' >{this.props.patients[key]['NHS number']}</span></th>
+									<td><Link id='patientsNameLink' to={`/patient/${key}`}>{this.props.patients[key].name}</Link></td>
+									<td><span id='patientProblem' >{this.props.patients[key].condition}</span></td>
 								</tr>]
 							);
 						})}

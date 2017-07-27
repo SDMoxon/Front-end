@@ -17,7 +17,7 @@ import './page_styles/UserPage.css';
 
 
 class UserPage extends React.Component {
-	constructor (props) {
+	constructor(props) {
 		super(props);
 
 		this.state = {
@@ -27,10 +27,10 @@ class UserPage extends React.Component {
 
 		this.handleClick = this.handleClick.bind(this);
 	}
-	componentDidMount () {
+	componentDidMount() {
 		this.props.getWards();
 	}
-	handleClick (e) {
+	handleClick(e) {
 		const wardName = e.target.value;
 		e.preventDefault();
 		this.props.getPatientsByWard(wardName);
@@ -41,31 +41,23 @@ class UserPage extends React.Component {
 
 	}
 
-	render () {
-		// setTimeout(() => {
-		// 	this.setState({ currentDate: new Date() });
-		// }, 1000);
-		// let dateString = DateFormat(this.state.currentDate, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
-
+	render() {
 		// Get the ward names
 		const result = Object.keys(this.props.wards).map((key) => {
 			return this.props.wards[key].name;
 		});
 
 		return (
-			<div className="component-UserPage flex-container">
-				<div className="column-1 flex-item column is-4">
-					<ProfileCard />
-					{/* <div className="time-date flex-item">
-						<p >{dateString}</p>
-					</div>*/}
+			<div className="component-UserPage columns">
+				<div className="column-1 column is-4">
+					<ProfileCard id='proCard' />
 				</div>
-				<div className="column-2 flex-item column is-3">
-					<div className="Ward-Search">
-						<WardSearch handleClick={this.handleClick} wardNames={result} />
-					</div>
+				<div className="column-2 column is-3">
+
+					<WardSearch handleClick={this.handleClick} wardNames={result} />
+
 				</div>
-				<div className="column-3 flex-item column is-5">
+				<div className="column-3 column is-5">
 					<div className="Patient-List">
 						{this.state.check ? <PatientList patients={this.props.patients} /> : null}
 					</div>
@@ -75,14 +67,14 @@ class UserPage extends React.Component {
 	}
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
 	return {
 		wards: state.userPage.wards,
 		patients: state.userPage.patients
 	};
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
 	return {
 		getWards: () => {
 			dispatch(actions.fetchWards());

@@ -1,4 +1,16 @@
-#multi-select{
-     height: 600px;
+.is-multiple{
+     height: auto;
+     width: 50%;
      margin: auto;
    }
+
+  #eachWard{
+    margin-bottom: 0px;
+     font-family: 'Asap', sans-serif;
+     font-weight: bold;
+     color: #494949;
+     margin: auto;
+  }
+
+
+

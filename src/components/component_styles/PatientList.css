@@ -1,0 +1,24 @@
+#patientsNameLink{
+    color: #4FA7BB;
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+     font-size: 15px;
+}
+
+#patientProblem {
+     color: #494949;
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+     font-size: 15px;
+}
+
+#patientnhs {
+    color: #494949;
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.component-patient-list{
+    margin-left: 10px;
+}
