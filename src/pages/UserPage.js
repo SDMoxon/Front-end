@@ -1,201 +1,76 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+// Actions
+import * as actions from '../actions/actions';
+
+// Components
 import ProfileCard from '../components/ProfileCard';
 import WardSearch from '../components/WardSearch';
 import PatientList from '../components/PatientList';
+// import DateFormat from 'dateformat';
+
+// CSS
 import './page_styles/UserPage.css';
-import DateFormat from 'dateformat';
 
 // import './page_styles/UserPage.css'
 
-const wards = {
-	'Florence': {
-		patients: [{
-			'id': '12345',
-			'name': 'Sarah Fowler',
-			'condition': 'Broken Foot'
-		},
-		{
-			'id': '12345',
-			'name': 'Barry Bridgewater',
-			'condition': 'Heart Transplant'
-		},
-		{
-			'id': '12345',
-			'name': 'Terry Hughs',
-			'condition': 'Broken Femur'
-		},
-		{
-			'id': '12345',
-			'name': 'Joanne Fitzgerald',
-			'condition': 'Dislocated Elbow'
-		},
-		{
-			'id': '12345',
-			'name': 'Bridget Jones',
-			'condition': 'Broken Heart'
-		},
-		{
-			'id': '12345',
-			'name': 'Mark Darcey',
-			'condition': 'Verbal'
-		}
-		]
-	},
-	'CCU': {
-		patients: [{
-			'id': '12345',
-			'name': 'Janice Brown',
-			'condition': 'Heart Attack'
-		},
-		{
-			'id': '12345',
-			'name': 'Fredrik Kappo',
-			'condition': 'Heart Transplant'
-		}
-		]
-	},
-	'Respiratory': {
-		patients: [{
-			'id': '12345',
-			'name': 'Jackie Chan',
-			'condition': 'Everything'
-		},
-		{
-			'id': '12345',
-			'name': 'Paulo Nutini',
-			'condition': 'Broken Voice box'
-		}
-		]
-	},
-	'Nightingale': {
-		patients: [{
-			'id': '12345',
-			'name': 'Joanne Fitzgerald',
-			'condition': 'Dislocated Elbow'
-		},
-		{
-			'id': '12345',
-			'name': 'Bridget Jones',
-			'condition': 'Broken Heart'
-		}
-		]
-	},
-	'Antenatal': {
-		patients: [{
-			'id': '12345',
-			'name': 'Janice Brown',
-			'condition': 'Heart Attack'
-		},
-		{
-			'id': '12345',
-			'name': 'Fredrik Kappo',
-			'condition': 'Heart Transplant'
-		}, {
-			'id': '12345',
-			'name': 'Bridget Jones',
-			'condition': 'Broken Heart'
-		},
-		{
-			'id': '12345',
-			'name': 'Mark Darcey',
-			'condition': 'Verbal'
-		}
-		]
-	},
-	'ICU': {
-		patients: [{
-			'id': '12345',
-			'name': 'Janice Brown',
-			'condition': 'Heart Attack'
-		},
-		{
-			'id': '12345',
-			'name': 'Fredrik Kappo',
-			'condition': 'Heart Transplant'
-		}
-		]
-	},
-	'Maternity': {},
-	'Neonatal': {},
-	'Vascular': {},
-	'OPU': {},
-	'Surgery': {},
-	'A&E': {},
-	'Fracture': {},
-	'XRAY': {}
-};
 
 class UserPage extends React.Component {
 	constructor (props) {
 		super(props);
 
 		this.state = {
-			patients: [{
-				'id': '12345',
-				'name': 'Sarah Fowler',
-				'condition': 'Broken Foot'
-			},
-			{
-				'id': '12345',
-				'name': 'Barry Bridgewater',
-				'condition': 'Heart Transplant'
-			},
-			{
-				'id': '12345',
-				'name': 'Terry Hughs',
-				'condition': 'Broken Femur'
-			},
-			{
-				'id': '12345',
-				'name': 'Joanne Fitzgerald',
-				'condition': 'Dislocated Elbow'
-			},
-			{
-				'id': '12345',
-				'name': 'Bridget Jones',
-				'condition': 'Broken Heart'
-			},
-			{
-				'id': '12345',
-				'name': 'Mark Darcey',
-				'condition': 'Verbal'
-			}
-			],
-			currentDate: new Date()
+			currentDate: new Date(),
+			check: false
 		};
 
 		this.handleClick = this.handleClick.bind(this);
 	}
+	componentDidMount () {
+		this.props.getWards();
+	}
 	handleClick (e) {
-		console.log(e.target.value);
+		const wardName = e.target.value;
 		e.preventDefault();
-		this.setState({ patients: wards[e.target.value].patients });
-		console.log(this.state.patients);
+		this.props.getPatientsByWard(wardName);
+		this.setState({
+			check: true
+		});
+
+
 	}
 
 	render () {
-		setTimeout(() => {
-			this.setState({ currentDate: new Date() });
-		}, 1000);
-		let dateString = DateFormat(this.state.currentDate, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
+		// setTimeout(() => {
+		// 	this.setState({ currentDate: new Date() });
+		// }, 1000);
+		// let dateString = DateFormat(this.state.currentDate, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
+
+		// Get the ward names
+		console.log(this.props.wards);
+		const result = Object.keys(this.props.wards).map((key) => {
+			return this.props.wards[key].name;
+		});
+
 		return (
 			<div className="component-UserPage flex-container tablet 769px">
 				<div className="column-1 flex-item column is-4">
 					<ProfileCard />
-					<div className="time-date flex-item">
+					{/* <div className="time-date flex-item">
 						<p >{dateString}</p>
-					</div>
+					</div>*/}
 
 				</div>
 				<div className="column-2 flex-item column is-3">
 					<div className="Ward-Search">
-						<WardSearch handleClick={this.handleClick} wardNames={Object.keys(wards)} />
+						<WardSearch handleClick={this.handleClick} wardNames={result} />
 					</div>
 
 				</div>
 				<div className="column-3 flex-item column is-5">
 					<div className="Patient-List">
-						{this.state.patients ? <PatientList patients={this.state.patients} /> : null}
+						{this.state.check ? <PatientList patients={this.props.patients} /> : null}
 					</div>
 
 				</div>
@@ -205,4 +80,30 @@ class UserPage extends React.Component {
 	}
 }
 
-export default UserPage;
+function mapStateToProps (state) {
+	return {
+		wards: state.userPage.wards,
+		patients: state.userPage.patients
+	};
+}
+
+function mapDispatchToProps (dispatch) {
+	return {
+		getWards: () => {
+			dispatch(actions.fetchWards());
+		},
+		getPatientsByWard: (wardName) => {
+			dispatch(actions.fetchPatientsByWard(wardName));
+		}
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserPage);
+
+
+UserPage.propTypes = {
+	getWards: PropTypes.func.isRequired,
+	getPatientsByWard: PropTypes.func.isRequired,
+	wards: PropTypes.object.isRequired,
+	patients: PropTypes.object.isRequired
+};

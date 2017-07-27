@@ -53,10 +53,12 @@ class TestResults extends React.Component {
           <BloodRes
             showBloods={this.state.bloodIsOpen}
             onCloseBloods={this.toggleBlood}
+            patient={this.props.patient}
           />
           <UrineRes
             showUrineRes={this.state.toggleUrine}
-            onCloseUrine={this.toggleUrine} />
+            onCloseUrine={this.toggleUrine}
+            patient={this.props.patient} />
         </div>
       );
     }
@@ -70,5 +72,6 @@ export default TestResults;
 
 TestResults.propTypes = {
   onClose: PropTypes.func.isRequired,
-  showTestRes: PropTypes.bool
+  showTestRes: PropTypes.bool,
+  patient: PropTypes.object.isRequired
 };

@@ -53,26 +53,25 @@ class PatientPage extends React.Component {
 		});
 	}
 	componentDidMount () {
-		this.props.fetchPatientRecord();
+		this.props.fetchPatientRecord(this.props.id);
 		this.forceUpdate();
 
 	}
 
 	render () {
-	
 		return (
-			
+
 			<div className="patient-page">
 				{this.props.loading && (
-           <Spinner name='ball-scale-ripple-multiple' color='#494949' fadeIn='none'/>
-        )}
+					<Spinner name='ball-scale-ripple-multiple' color='#494949' fadeIn='none' />
+				)}
 				<div className="columns">
 					<div className="column is-4">
 						<MedicalRecords
 							patient={this.props.patient}
 							loading={this.props.loading}
 						/>
-						<PatientSummary 
+						<PatientSummary
 							patient={this.props.patient}
 							loading={this.props.loading}
 						/>
@@ -86,10 +85,13 @@ class PatientPage extends React.Component {
 						<CurrentMeds
 							showMeds={this.state.medsIsOpen}
 							onClose={this.toggleCurrentMeds}
+							patient={this.props.patient}
+							loading={this.props.loading}
 						/>
 						<TestResults
 							showTestRes={this.state.testResIsOpen}
 							onClose={this.toggleTestResults}
+							patient={this.props.patient}
 						/>
 					</div>
 					<div className="column is-3">
@@ -115,8 +117,8 @@ class PatientPage extends React.Component {
 
 function mapDispatchToProps (dispatch) {
 	return {
-		fetchPatientRecord: () => {
-			dispatch(actions.fetchPatientRecord());
+		fetchPatientRecord: (id) => {
+			dispatch(actions.fetchPatientRecord(id));
 		}
 	};
 }
@@ -124,16 +126,18 @@ function mapDispatchToProps (dispatch) {
 function mapStateToProps (state) {
 
 	return {
-		patient: state.patient,
-		loading: state.loading
+		patient: state.patientPage.patient,
+		loading: state.patientPage.loading
 	};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PatientPage);
 
 PatientPage.propTypes = {
-    loading: PropTypes.bool.isRequired,
+	loading: PropTypes.bool.isRequired,
 	patient: PropTypes.object.isRequired,
-	fetchPatientRecord: PropTypes.func.isRequired
-  };
+	fetchPatientRecord: PropTypes.func.isRequired,
+	id: PropTypes.string.isRequired,
+
+};
 

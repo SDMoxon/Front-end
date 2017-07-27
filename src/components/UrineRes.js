@@ -9,7 +9,9 @@ class UrineRes extends React.Component {
   }
 
   render () {
-    if (this.props.showUrineRes) {
+    if (this.props.showUrineRes && this.props.patient.testResult) {
+      const urineKey = Object.keys(this.props.patient.testResult.urine).sort((a, b) => b - a)[0];
+      const urineRes = this.props.patient.testResult.urine[urineKey];
       return (
         <div className="compontent-UrineRes">
           <table className="table">
@@ -17,28 +19,33 @@ class UrineRes extends React.Component {
               <tr>
                 <th id='urine-test-titles'>URINE INFO</th>
                 <th id='urine-test-titles'>RESULT</th>
-                <th id='urine-test-titles'>0-10</th>
+                <th id='urine-test-titles'>PERCENTAGE</th>
+                <th id='urine-test-titles'>RANGE</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th id='urine-res-keys'>Nitrite</th>
-                <td><progress className="progress is-danger" value="15" max="100">15%</progress></td>
+                <th id='urine-res-keys'>Nitrate</th>
+                <td id='urine-test-data' >{urineRes['nitrate']}</td>
+                <td><progress className="progress is-danger" value={String(urineRes['nitrate'] / 11) * 100} max="100"></progress></td>
                 <td id='urine-test-data' >4-11</td>
               </tr>
               <tr>
                 <th id='urine-res-keys'>Protein</th>
-                <td><progress className="progress is-primary" value="30" max="100">30%</progress></td>
+                <td id='urine-test-data' >{urineRes['protein']}</td>
+                <td><progress className="progress is-primary" value={String((urineRes['protein'] / 165) * 100)} max="100">30%</progress></td>
                 <td id='urine-test-data'>115-165</td>
               </tr>
               <tr>
                 <th id='urine-res-keys'>pH</th>
-                <td><progress className="progress is-info" value="45" max="100">45%</progress></td>
+                <td id='urine-test-data' >{urineRes['pH']}</td>
+                <td><progress className="progress is-info" value={String((urineRes['pH'] / 450) * 100)} max="100"></progress></td>
                 <td id='urine-test-data'>150-450</td>
               </tr>
               <tr>
                 <th id='urine-res-keys'>Glucose</th>
-                <td><progress className="progress is-success" value="60" max="100">60%</progress></td>
+                <td id='urine-test-data' >{urineRes['glucose']}</td>
+                <td><progress id='test' className="progress" value={String((urineRes['glucose'] / 900) * 100)} max="100"></progress></td>
                 <td id='urine-test-data'>200-900</td>
               </tr>
             </tbody>
@@ -55,7 +62,8 @@ class UrineRes extends React.Component {
 export default UrineRes;
 
 UrineRes.propTypes = {
-  showUrineRes: PropTypes.bool
+  showUrineRes: PropTypes.bool,
+  patient: PropTypes.object.isRequired
 
 };
 

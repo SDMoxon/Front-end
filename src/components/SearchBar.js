@@ -1,87 +1,48 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import SinglePatientSearch from './SinglePatientSearch';
 import './component_styles/SearchBar.css';
+
+import * as actions from '../actions/actions';
+import { connect } from 'react-redux';
+
+import _ from 'underscore';
 
 class SearchBar extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			input: '',
-			patients: {
-				'p1': {
-					'name': 'Harry potter',
-					'ward': 'Nightingale',
-					'condition': 'Broken Wand',
-					'NHSNumber': 'NHS3472813'
-				},
-				'p2': {
-					'name': 'Jessica Hughs',
-					'ward': 'A&E',
-					'condition': 'Foot sprain',
-					'NHSNumber': 'NHS3474233'
-				},
-				'p3': {
-					'name': 'Harry Fletcher',
-					'ward': 'ICU',
-					'condition': 'Heart Attack',
-					'NHSNumber': 'NHS7632813'
-				},
-				'p4': {
-					'name': 'Prince Harry',
-					'ward': 'Fracture',
-					'condition': 'Fractured Hand',
-					'NHSNumber': 'NH772472813'
-				},
-				'p5': {
-					'name': 'Harry Gordon',
-					'ward': 'Fracture',
-					'condition': 'Fractured Hand',
-					'NHSNumber': 'NH772472813'
-				},
-				'p6': {
-					'name': 'Harry Fiztgerald',
-					'ward': 'Fracture',
-					'condition': 'Fractured Hand',
-					'NHSNumber': 'NH772472813'
-				},
-				'p7': {
-					'name': 'Harry Henman',
-					'ward': 'Fracture',
-					'condition': 'Fractured Hand',
-					'NHSNumber': 'NH772472813'
-				}
-			}
+			input: ''
 		};
 		this.handleChange = this.handleChange.bind(this);
-		this.filterNames = this.filterNames.bind(this);
+		this.convert = this.convert.bind(this);
 	}
 	handleChange (e) {
 		e.preventDefault();
-
 		this.setState({ input: e.target.value });
+		_.throttle(
+			this.props.getPatientsByName(e.target.value)
+			, 100);
+
 	}
-	filterNames (obj, str) {
+	convert (obj) {
 		let result = [];
 		for (let key in obj) {
-			var regexp = new RegExp(str, 'gi');
-			if (regexp.test(obj[key].name)) {
-				result.push(obj[key]);
-			}
+			result.push(obj[key]);
 		}
 		return result;
-	
-
 	}
 	render () {
-		const searchPatients = this.filterNames(this.state.patients, this.state.input).map((patient) => {
-			return (<SinglePatientSearch key={patient.name} name={patient.name} ward={patient.ward} condition={patient.condition} />);
+
+		const searchPatients = Object.keys(this.props.search).map((key) => {
+
+			return (<SinglePatientSearch key={this.props.search[key].personalDetails.NHSnumber} id={key} name={`${this.props.search[key].personalDetails.firstNames[0]} ${this.props.search[key].personalDetails.surname} `} ward={this.props.search[key].wardName} condition={this.props.search[key].currentMedicalState.currentCondition} />);
 		});
 		return (
 			<div className="component-SearchBar">
 				<form className='search-for-patient'>
 					<div className='searchbox'><input onChange={this.handleChange} className="input" type="text" placeholder="Search..." /></div>
-					{this.state.input.length > 0 ? <div id='dropdown'className='card scroll-box'>{searchPatients}</div> : <p></p>}
+					{this.state.input.length > 0 ? <div id='dropdown' className='card scroll-box'>{searchPatients}</div> : <p></p>}
 
 
 				</form>
@@ -90,5 +51,26 @@ class SearchBar extends React.Component {
 	}
 }
 
-export default SearchBar;
 
+function mapStateToProps (state) {
+	return {
+		search: state.userPage.search
+	};
+}
+
+function mapDispatchToProps (dispatch) {
+	return {
+		getPatientsByName: (name) => {
+			dispatch(actions.fetchPatientsByName(name));
+		}
+	};
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+
+
+SearchBar.propTypes = {
+	getPatientsByName: PropTypes.func.isRequired,
+	search: PropTypes.object.isRequired
+};

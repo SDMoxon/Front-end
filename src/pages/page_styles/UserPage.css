@@ -42,7 +42,7 @@ width: 600px;
 .Ward-Search{
     position: relative;
     justify-content: center;
-    left:160px;
+    /*left:160px;*/
     
     width: 40px;
 }
