@@ -91,6 +91,7 @@ class PatientPage extends React.Component {
 						<TestResults
 							showTestRes={this.state.testResIsOpen}
 							onClose={this.toggleTestResults}
+							patient={this.props.patient}
 						/>
 					</div>
 					<div className="column is-3">
