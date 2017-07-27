@@ -33,9 +33,7 @@ class SearchBar extends React.Component {
 		return result;
 	}
 	render () {
-
 		const searchPatients = Object.keys(this.props.search).map((key) => {
-
 			return (<SinglePatientSearch key={this.props.search[key].personalDetails.NHSnumber} id={key} name={`${this.props.search[key].personalDetails.firstNames[0]} ${this.props.search[key].personalDetails.surname} `} ward={this.props.search[key].wardName} condition={this.props.search[key].currentMedicalState.currentCondition} />);
 		});
 		return (
@@ -43,8 +41,6 @@ class SearchBar extends React.Component {
 				<form className='search-for-patient'>
 					<div className='searchbox'><input onChange={this.handleChange} className="input" type="text" placeholder="Search..." /></div>
 					{this.state.input.length > 0 ? <div id='dropdown' className='card scroll-box'>{searchPatients}</div> : <p></p>}
-
-
 				</form>
 			</div>
 		);

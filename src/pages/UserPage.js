@@ -48,33 +48,28 @@ class UserPage extends React.Component {
 		// let dateString = DateFormat(this.state.currentDate, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
 
 		// Get the ward names
-		console.log(this.props.wards);
 		const result = Object.keys(this.props.wards).map((key) => {
 			return this.props.wards[key].name;
 		});
 
 		return (
-			<div className="component-UserPage flex-container tablet 769px">
+			<div className="component-UserPage flex-container">
 				<div className="column-1 flex-item column is-4">
 					<ProfileCard />
 					{/* <div className="time-date flex-item">
 						<p >{dateString}</p>
 					</div>*/}
-
 				</div>
 				<div className="column-2 flex-item column is-3">
 					<div className="Ward-Search">
 						<WardSearch handleClick={this.handleClick} wardNames={result} />
 					</div>
-
 				</div>
 				<div className="column-3 flex-item column is-5">
 					<div className="Patient-List">
 						{this.state.check ? <PatientList patients={this.props.patients} /> : null}
 					</div>
-
 				</div>
-
 			</div>
 		);
 	}
