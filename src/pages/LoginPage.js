@@ -3,7 +3,7 @@ import React from 'react';
 import './page_styles/LoginPage.css';
 
 class LoginPage extends React.Component {
-	render () {
+	render() {
 		return (
 			<div className="component-LoginPage">
 				<div className='columns'>
@@ -22,9 +22,9 @@ class LoginPage extends React.Component {
 							</div>
 							<div className="field">
 								<p className="control">
-									<button id='login-button' className="button is-success">
+									<a id='login-button' className="button is-success" href="http://localhost:9000/user/1">
 										Login
-							</button>
+									</a>
 								</p>
 							</div>
 						</div>
