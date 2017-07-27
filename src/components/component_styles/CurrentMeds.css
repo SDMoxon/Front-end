@@ -23,16 +23,21 @@
 .current-meds-title {
   color: white;
   font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .table-titles{
   color: #53AFC6;
   font-size: 15px;
+  padding-bottom: 10px;
 }
 
 .med-details{
   color:white;
   font-weight: bold;
+  padding-right: 10px;
 }
 
 .meds-table{
@@ -41,6 +46,8 @@
 
 .med-keys{
   color:#53AFC6;
+  padding-right: 10px;
+
 }
 
 #cancel-meds-button{

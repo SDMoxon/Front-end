@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class PatientList extends React.Component {
 	render () {
@@ -9,22 +10,22 @@ class PatientList extends React.Component {
 
 					<thead>
 						<tr>
-						<th>NHS Number</th>
-						<th>Name</th>
-						<th>Condition</th>
+							<th>NHS Number</th>
+							<th>Name</th>
+							<th>Condition</th>
 						</tr>
 					</thead>
 					<tbody>
-						{this.props.patients.map((patient) => {
-							return ([<tr key={patient.id}>
-								<th>{patient.id}</th>
-								<td><a href="#" title="Ben Butcher">{patient.name}</a></td>
-								<td>{patient.condition}</td>
-							</tr>]);
+						{Object.keys(this.props.patients).map((key, i) => {
+							return (
+								[<tr key={i}>
+									<th>{this.props.patients[key]['NHS number']}</th>
+									<td><Link to={`/patient/${key}`}>{this.props.patients[key].name}</Link></td>
+									<td>{this.props.patients[key].condition}</td>
+								</tr>]
+							);
 						})}
 					</tbody>
-
-
 				</table>
 			</div>
 		);

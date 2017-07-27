@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 import './component_styles/CurrentMeds.css';
 
 class CurrentMeds extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
+
   }
-  
+
   render () {
-    if (this.props.showMeds) {
+    if (this.props.showMeds && this.props.patient.medication) {
       return (
         <div className="compontent-currentMeds card">
           <p className="current-meds-title">Current Medication</p>
@@ -23,30 +24,17 @@ class CurrentMeds extends React.Component {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th className='med-keys'>1</th>
-                <td className='med-details'>Asprin</td>
-                <td  className='med-details'>81 mg</td>
-                <td  className='med-details'>1 daily with food</td>
-              </tr>
-                  <tr>
-                <th  className='med-keys'>2</th>
-                <td className='med-details'>Naproxen</td>
-                <td className='med-details'>500 mg</td>
-                <td className='med-details'>1 twice daily</td>
-              </tr>
-              <tr>
-                <th className='med-keys'>3</th>
-                <td className='med-details'>Citalopram</td>
-                <td className='med-details'>20 mg</td>
-                <td className='med-details'>1 daily</td>
-              </tr>
-              <tr>
-                <th className='med-keys'>4</th>
-                <td className='med-details'>albuterol HFA</td>
-                <td className='med-details'>81 mg</td>
-                <td className='med-details'>1 daily</td>
-              </tr>
+              {Object.keys(this.props.patient.medication).map((key, i) => {
+                return (
+                  [<tr key={i}>
+                  <th className='med-keys'>{i + 1}</th>
+									<td className='med-details'>{this.props.patient.medication[key].name}</td>
+									<td className='med-details'>{this.props.patient.medication[key].dosageInfo}</td>
+									<td className='med-details'>{this.props.patient.medication[key].instructions}</td>
+								</tr>]
+
+                )
+              })}
             </tbody>
           </table>
           <button id='add-meds-button' className="button is-primary">Add</button>

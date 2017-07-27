@@ -6,10 +6,10 @@ const URL = 'https://us-central1-live-northcoders-nhs-app.cloudfunctions.net';
 
 
 // FETCH PATIENT RECORD
-export function fetchPatientRecord () {
+export function fetchPatientRecord (id) {
 	return function (dispatch) {
 		dispatch(fetchPatientRecordRequest());
-		axios.get(`${URL}/getPatientById?id=-KptL4lyQlhPV5QUIsDP`)
+		axios.get(`${URL}/getPatientById?id=${id}`)
 			.then(res => {
 				dispatch(fetchPatientRecordSuccess(res.data));
 			})
@@ -39,10 +39,10 @@ export function fetchPatientRecordError (error) {
 }
 
 // UPDATE PATIENT RECORD
-export function updatePatientRecord (newData) {
+export function updatePatientRecord (newData, id) {
 	return function (dispatch) {
 		dispatch(updatePatientRecordRequest());
-		axios.put(`${URL}/putPatientDetails?id=-KptL4lyQlhPV5QUIsDP`, newData)
+		axios.put(`${URL}/putPatientDetails?id=${id}`, newData)
 			.then((res) => {
 				dispatch(updatePatientRecordSuccess(res.data));
 			})
