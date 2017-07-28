@@ -72,6 +72,7 @@ class PatientPage extends React.Component {
 						<MedicalRecords
 							patient={this.props.patient}
 							loading={this.props.loading}
+							patient_id={patient_id}
 						/>
 						<PatientSummary
 							patient={this.props.patient}
@@ -103,10 +104,7 @@ class PatientPage extends React.Component {
 						/>
 					</div>
 					<div id='nav-col' className="column is-1">
-						<i
-							className="fa fa-bars"
-							onClick={this.toggleNavBar}
-						></i>
+						<img src="https://image.flaticon.com/icons/svg/230/230203.svg" onClick={this.toggleNavBar} alt="vitals" id="icon-helper" />
 						<NavBar
 							toggleVitalForm={this.toggleVitalForm}
 							toggleCurrentMeds={this.toggleCurrentMeds}

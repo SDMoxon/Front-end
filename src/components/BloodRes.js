@@ -9,9 +9,13 @@ class BloodRes extends React.Component {
   }
 
   render () {
-    if (this.props.showBloods && this.props.patient.testResult) {
-      const bloodsKey = Object.keys(this.props.patient.testResult.bloods).sort((a, b) => b - a)[0];
-     
+    const { showBloods, patient } = this.props;
+    const { bloods } = this.props.patient.testResult;
+
+    if (showBloods && patient.testResult) {
+
+      const bloodsKey = Object.keys(patient.testResult.bloods).sort((a, b) => b - a)[0];
+
       return (
         <div className="compontent-bloodRes">
           <table className="table">
@@ -24,30 +28,27 @@ class BloodRes extends React.Component {
               </tr>
             </thead>
             <tbody>
-
               <tr>
                 <th id='blood-test-keys'>White Cell Count</th>
-                <td id='test-result'>{this.props.patient.testResult.bloods[bloodsKey]['white Cell Count']}</td>
+                <td id='test-result'>{bloods[bloodsKey]['white Cell Count']}</td>
                 <td id='test-result'>10/L</td>
                 <td id='test-result'>4-11</td>
               </tr>
-
-
               <tr>
                 <th id='blood-test-keys'>Heamoglobin</th>
-                <td id='test-result'>{this.props.patient.testResult.bloods[bloodsKey]['heamoglobin']}</td>
+                <td id='test-result'>{bloods[bloodsKey]['heamoglobin']}</td>
                 <td id='test-result'>g/L</td>
                 <td id='test-result'>115-165</td>
               </tr>
               <tr>
                 <th id='blood-test-keys'>Platelets</th>
-                <td id='test-result'> {this.props.patient.testResult.bloods[bloodsKey]['platelets']}</td>
+                <td id='test-result'> {bloods[bloodsKey]['platelets']}</td>
                 <td id='test-result'>10/L</td>
                 <td id='test-result'>150-450</td>
               </tr>
               <tr>
                 <th id='blood-test-keys'>Vitamin B12</th>
-                <td id='test-result'>{this.props.patient.testResult.bloods[bloodsKey]['vitimin b12']}</td>
+                <td id='test-result'>{bloods[bloodsKey]['vitimin b12']}</td>
                 <td id='test-result'>ng/L</td>
                 <td id='test-result'>200-900</td>
               </tr>

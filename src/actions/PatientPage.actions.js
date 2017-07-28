@@ -42,7 +42,7 @@ export function fetchPatientRecordError (error) {
 export function updatePatientRecord (newData, id) {
 	return function (dispatch) {
 		dispatch(updatePatientRecordRequest());
-		axios.put(`${URL}/putPatientDetails?id=${id}`, newData)
+		axios.put(`${URL}/putPersonalDetails?id=${id}`, newData)
 			.then((res) => {
 				dispatch(updatePatientRecordSuccess(res.data));
 			})

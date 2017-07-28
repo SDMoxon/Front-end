@@ -97,6 +97,7 @@ class MedicalRecords extends React.Component {
           patient={this.props.patient}
           loading={this.props.loading}
           toggleEdit={this.toggleEdit}
+          patient_id={this.props.patient_id}
 
         /> :
 
@@ -125,5 +126,6 @@ export default MedicalRecords;
 MedicalRecords.propTypes = {
   patient: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired,
-  fetchPatientRecord: PropTypes.func
+  fetchPatientRecord: PropTypes.func,
+  patient_id: PropTypes.string.isRequired
 };

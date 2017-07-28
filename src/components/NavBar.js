@@ -7,15 +7,15 @@ class NavBar extends React.Component {
 	constructor (props) {
 		super(props);
 	}
-	
+
 	render () {
 		if (this.props.showNavBar) {
 			return (
 				<div className="component-NavBar">
-					<i className="fa fa-window-close" aria-hidden="true"></i>
-					<i onClick={this.props.toggleVitalForm} className="fa fa-thermometer-three-quarters" aria-hidden="true"></i>
-					<i onClick={this.props.toggleCurrentMeds} className="fa fa-medkit" aria-hidden="true"></i>
-					<i onClick={this.props.toggleTestResults} className="fa fa-file-text" aria-hidden="true"></i>
+					<img src="https://image.flaticon.com/icons/svg/230/230201.svg" onClick={this.props.toggleVitalForm} alt="vitals" className="icon" />
+					<img src="https://image.flaticon.com/icons/svg/230/230191.svg" onClick={this.props.toggleCurrentMeds} alt="medication" className="icon" />
+					<img src="https://image.flaticon.com/icons/svg/230/230181.svg" onClick={this.props.toggleTestResults} alt="results" className="icon" />
+					<img src="https://image.flaticon.com/icons/svg/230/230209.svg" alt="x-ray" className="icon" />
 				</div>
 			);
 		}

@@ -10,7 +10,10 @@ class CurrentMeds extends React.Component {
   }
 
   render () {
-    if (this.props.showMeds && this.props.patient.medication) {
+    const { showMeds, onClose } = this.props;
+    const { medication } = this.props.patient;
+
+    if (showMeds && this.props.patient.medication) {
       return (
         <div className="compontent-currentMeds card">
           <p className="current-meds-title">Current Medication</p>
@@ -24,21 +27,20 @@ class CurrentMeds extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {Object.keys(this.props.patient.medication).map((key, i) => {
+              {Object.keys(medication).map((key, i) => {
                 return (
                   [<tr key={i}>
-                  <th className='med-keys'>{i + 1}</th>
-									<td className='med-details'>{this.props.patient.medication[key].name}</td>
-									<td className='med-details'>{this.props.patient.medication[key].dosageInfo}</td>
-									<td className='med-details'>{this.props.patient.medication[key].instructions}</td>
-								</tr>]
-
+                    <th className='med-keys'>{i + 1}</th>
+                    <td className='med-details'>{medication[key].name}</td>
+                    <td className='med-details'>{medication[key].dosageInfo}</td>
+                    <td className='med-details'>{medication[key].instructions}</td>
+                  </tr>]
                 );
               })}
             </tbody>
           </table>
           <button id='add-meds-button' className="button is-primary">Add</button>
-          <button id='cancel-meds-button' className="button is-danger" onClick={this.props.onClose}>Cancel</button>
+          <button id='cancel-meds-button' className="button is-danger" onClick={onClose}>Cancel</button>
         </div>
       );
     }

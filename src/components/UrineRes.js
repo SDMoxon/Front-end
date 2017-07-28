@@ -9,9 +9,13 @@ class UrineRes extends React.Component {
   }
 
   render () {
-    if (this.props.showUrineRes && this.props.patient.testResult) {
+    const { showUrineRes, patient } = this.props;
+    const { urine } = this.props.patient.testResult;
+
+    if (showUrineRes && patient.testResult) {
+
       const urineKey = Object.keys(this.props.patient.testResult.urine).sort((a, b) => b - a)[0];
-      const urineRes = this.props.patient.testResult.urine[urineKey];
+
       return (
         <div className="compontent-UrineRes">
           <table className="table">
@@ -24,30 +28,57 @@ class UrineRes extends React.Component {
               </tr>
             </thead>
             <tbody>
+
               <tr>
                 <th id='urine-res-keys'>Nitrate</th>
-                <td id='urine-test-data' >{urineRes['nitrate']}</td>
-                <td><progress className="progress is-danger" value={String(urineRes['nitrate'] / 11) * 100} max="100"></progress></td>
+                <td id='urine-test-data' >{urine[urineKey]['nitrate']}</td>
+                <td>
+                  <progress
+                    className="progress is-danger"
+                    value={String(urine[urineKey]['nitrate'] / 11) * 100} max="100"
+                  ></progress>
+                </td>
                 <td id='urine-test-data' >4-11</td>
               </tr>
+
               <tr>
                 <th id='urine-res-keys'>Protein</th>
-                <td id='urine-test-data' >{urineRes['protein']}</td>
-                <td><progress className="progress is-primary" value={String((urineRes['protein'] / 165) * 100)} max="100">30%</progress></td>
+                <td id='urine-test-data' >{urine[urineKey]['protein']}</td>
+                <td>
+                  <progress
+                    className="progress is-primary"
+                    value={String((urine[urineKey]['protein'] / 165) * 100)}
+                    max="100">30%
+                  </progress>
+                </td>
                 <td id='urine-test-data'>115-165</td>
               </tr>
+
               <tr>
                 <th id='urine-res-keys'>pH</th>
-                <td id='urine-test-data' >{urineRes['pH']}</td>
-                <td><progress className="progress is-info" value={String((urineRes['pH'] / 450) * 100)} max="100"></progress></td>
+                <td id='urine-test-data' >{urine[urineKey]['pH']}</td>
+                <td>
+                  <progress
+                    className="progress is-info"
+                    value={String((urine[urineKey]['pH'] / 450) * 100)}
+                    max="100"
+                  ></progress></td>
                 <td id='urine-test-data'>150-450</td>
               </tr>
+
               <tr>
                 <th id='urine-res-keys'>Glucose</th>
-                <td id='urine-test-data' >{urineRes['glucose']}</td>
-                <td><progress id='test' className="progress" value={String((urineRes['glucose'] / 700) * 100)} max="100"></progress></td>
+                <td id='urine-test-data' >{urine[urineKey]['glucose']}</td>
+                <td>
+                  <progress
+                    className="progress"
+                    value={String((urine[urineKey]['glucose'] / 700) * 100)}
+                    max="100"
+                  ></progress>
+                </td>
                 <td id='urine-test-data'>200-900</td>
               </tr>
+
             </tbody>
           </table>
         </div>

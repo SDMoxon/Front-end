@@ -1,20 +1,28 @@
 .patient-page {
   height: 100vh;
-  background-color:white;
-
+  background-color: white;
 }
 
 .columns {
   max-height: 100vh;
 }
 
-#nav-col{
-  background-color: #53AFC6;
+#nav-col {
+  background-color: white;
 }
 
 .ball-scale-ripple-multiple {
   z-index: 100;
   left: 50%;
   top: 50%;
+}
 
+#icon-helper {
+  height: 10%;
+  width: auto;
+  margin: auto;
+  margin-top: 30px;
+  padding: auto;
+  margin-left: 24%;
+  display: block;
 }
